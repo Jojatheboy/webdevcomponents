@@ -4,17 +4,51 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState, useEffect } from "react";
 import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { Reveal } from "./Reveal";
-import { empreendimentos, type Status } from "@/lib/empreendimentos";
-import SectionTag from "./ui/SectionTag";
+import { Reveal } from "../animations/Reveal";
+import SectionTag from "../sections/SectionTag";
 
-const statusLabel: Record<Status, string> = {
-  "em-obras": "Em construção",
-  ultimas: "Últimas unidades",
-  entregue: "Entregue",
+/* ============================================================
+ *  EmpreendimentosCarousel — carousel horizontal de cards verticais
+ *  com badges duplos, foto fullbleed, hover scale.
+ * ============================================================ */
+
+export type EmpreendimentoItem = {
+  slug?: string;
+  href?: string;
+  name: string;
+  category?: string;
+  subtitle?: string;
+  status: { label: string; tone: "primary" | "secondary" | "muted" };
+  image?: string;
+  /** Cor de fallback se não tiver imagem (gradient base) */
+  placeholderColor?: string;
 };
 
-export default function Empreendimentos() {
+export interface EmpreendimentosCarouselProps {
+  number?: number;
+  tag: string;
+  headline: string;
+  subtitle?: string;
+  /** CTA outline ao lado do subtitle */
+  ctaLabel?: string;
+  ctaHref?: string;
+  items: EmpreendimentoItem[];
+  /** "light" pra fundo claro, "surface" pra fundo --surface */
+  background?: "light" | "surface";
+  id?: string;
+}
+
+export default function EmpreendimentosCarousel({
+  number,
+  tag,
+  headline,
+  subtitle,
+  ctaLabel,
+  ctaHref,
+  items,
+  background = "light",
+  id = "empreendimentos",
+}: EmpreendimentosCarouselProps) {
   const trackRef = useRef<HTMLDivElement | null>(null);
   const [activeIdx, setActiveIdx] = useState(0);
 
@@ -26,11 +60,11 @@ export default function Empreendimentos() {
       if (!card) return;
       const cardW = card.offsetWidth + 20;
       const idx = Math.round(el.scrollLeft / cardW);
-      setActiveIdx(Math.min(idx, empreendimentos.length - 1));
+      setActiveIdx(Math.min(idx, items.length - 1));
     };
     el.addEventListener("scroll", onScroll, { passive: true });
     return () => el.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [items.length]);
 
   const scrollBy = (dir: 1 | -1) => {
     const el = trackRef.current;
@@ -47,35 +81,38 @@ export default function Empreendimentos() {
     el.scrollTo({ left: i * (card.offsetWidth + 20), behavior: "smooth" });
   };
 
+  const bgClass = background === "surface" ? "bg-[var(--surface)]" : "bg-[var(--background)]";
+
   return (
-    <section
-      id="empreendimentos"
-      className="relative bg-[var(--surface)] pt-16 sm:pt-24 pb-16 sm:pb-24"
-    >
+    <section id={id} className={`relative ${bgClass} pt-16 sm:pt-24 pb-16 sm:pb-24`}>
       <div className="max-w-[1220px] mx-auto px-4 md:px-6">
         <Reveal>
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-end mb-12 lg:mb-16">
             <div className="lg:col-span-7">
-              <SectionTag number={2} tone="light" className="mb-6">
-                Setor Imobiliário
+              <SectionTag number={number} tone="light" className="mb-6">
+                {tag}
               </SectionTag>
               <h2 className="font-[var(--font-display)] text-[var(--foreground)] text-[clamp(40px,6vw,68px)] leading-[1.02]">
-                Encontre seu<br />imóvel.
+                {headline}
               </h2>
             </div>
-            <div className="lg:col-span-5 flex flex-col gap-5">
-              <p className="text-[var(--foreground-soft)] text-base md:text-lg max-w-[44ch]">
-                Empreendimentos no Jardim da Balsa 2, Americana. Lazer completo, materiais de qualidade e localização privilegiada.
-              </p>
-              <Link
-                href="#a-construtora"
-                className="self-start inline-flex items-center gap-2 px-6 h-11 rounded-full border border-[var(--foreground)] text-[var(--foreground)] text-sm hover:bg-[var(--foreground)] hover:text-white transition-colors"
-                style={{ transitionDuration: "200ms" }}
-              >
-                Conhecer a construtora
-                <ArrowUpRight className="size-4" />
-              </Link>
-            </div>
+            {(subtitle || ctaLabel) && (
+              <div className="lg:col-span-5 flex flex-col gap-5">
+                {subtitle && (
+                  <p className="text-[var(--foreground-soft)] text-base md:text-lg max-w-[44ch]">{subtitle}</p>
+                )}
+                {ctaLabel && ctaHref && (
+                  <Link
+                    href={ctaHref}
+                    className="self-start inline-flex items-center gap-2 px-6 h-11 rounded-full border border-[var(--foreground)] text-[var(--foreground)] text-sm hover:bg-[var(--foreground)] hover:text-white transition-colors"
+                    style={{ transitionDuration: "200ms" }}
+                  >
+                    {ctaLabel}
+                    <ArrowUpRight className="size-4" />
+                  </Link>
+                )}
+              </div>
+            )}
           </div>
         </Reveal>
       </div>
@@ -88,19 +125,16 @@ export default function Empreendimentos() {
             style={{ scrollbarWidth: "none" }}
           >
             <style jsx>{`div::-webkit-scrollbar { display: none; }`}</style>
-            {empreendimentos.map((emp) => {
-              const isEmObras = emp.status === "em-obras";
-              const isUltimas = emp.status === "ultimas";
-              return (
+            {items.map((emp) => {
+              const inner = (
                 <article
-                  key={emp.slug}
                   data-card
                   className="snap-start shrink-0 w-[78vw] sm:w-[360px] lg:w-[380px] aspect-[3/4] rounded-2xl overflow-hidden relative group bg-[var(--dark-section)]"
                 >
                   {emp.image ? (
                     <Image
                       src={emp.image}
-                      alt={emp.nome}
+                      alt={emp.name}
                       fill
                       sizes="(min-width: 1024px) 380px, 78vw"
                       className="object-cover transition-transform duration-700 md:group-hover:scale-105"
@@ -109,7 +143,11 @@ export default function Empreendimentos() {
                   ) : (
                     <div
                       className="absolute inset-0"
-                      style={{ background: "linear-gradient(160deg, #1a1612 0%, #2a221c 100%)" }}
+                      style={{
+                        background: emp.placeholderColor
+                          ? `linear-gradient(160deg, ${emp.placeholderColor} 0%, ${emp.placeholderColor}cc 100%)`
+                          : "linear-gradient(160deg, #1a1612 0%, #2a221c 100%)",
+                      }}
                     />
                   )}
 
@@ -117,46 +155,56 @@ export default function Empreendimentos() {
                     className="absolute inset-0 pointer-events-none"
                     style={{
                       background:
-                        "linear-gradient(180deg, rgba(26,22,18,0.30) 0%, rgba(26,22,18,0) 30%, rgba(26,22,18,0) 50%, rgba(26,22,18,0.92) 100%)",
+                        "linear-gradient(180deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.92) 100%)",
                     }}
                   />
 
                   <div className="absolute top-4 left-4 flex flex-wrap gap-2 z-10">
-                    <span className="inline-flex items-center px-3 h-7 rounded-md bg-white text-[var(--foreground)] font-mono uppercase text-[10px] tracking-[0.14em]">
-                      Residencial
-                    </span>
+                    {emp.category && (
+                      <span className="inline-flex items-center px-3 h-7 rounded-md bg-white text-[var(--foreground)] font-mono uppercase text-[10px] tracking-[0.14em]">
+                        {emp.category}
+                      </span>
+                    )}
                     <span
                       className={`inline-flex items-center px-3 h-7 rounded-md font-mono uppercase text-[10px] tracking-[0.14em] ${
-                        isEmObras
+                        emp.status.tone === "primary"
                           ? "bg-[var(--accent)] text-white"
-                          : isUltimas
+                          : emp.status.tone === "secondary"
                           ? "bg-white/95 text-[var(--accent)]"
                           : "bg-[var(--dark-section)] text-white"
                       }`}
                     >
-                      {statusLabel[emp.status]}
+                      {emp.status.label}
                     </span>
                   </div>
 
-                  <Link
-                    href={`/empreendimentos/${emp.slug}`}
-                    aria-label={`Conhecer ${emp.nome}`}
-                    className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-[var(--foreground)] transition-all z-10"
+                  <span
+                    aria-hidden="true"
+                    className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white flex items-center justify-center group-hover:bg-white group-hover:text-[var(--foreground)] transition-all z-10"
                     style={{ transitionDuration: "200ms" }}
                   >
                     <ArrowUpRight className="size-4" />
-                  </Link>
+                  </span>
 
                   <div className="absolute bottom-0 inset-x-0 p-6 z-10">
-                    <p className="font-mono uppercase text-[10px] tracking-[0.18em] text-white/65 mb-2">
-                      {emp.bairro} · {emp.cidade}
-                      {emp.endereco && ` · ${emp.endereco}`}
-                    </p>
+                    {emp.subtitle && (
+                      <p className="font-mono uppercase text-[10px] tracking-[0.18em] text-white/65 mb-2">
+                        {emp.subtitle}
+                      </p>
+                    )}
                     <h3 className="font-[var(--font-display)] text-white text-2xl lg:text-3xl leading-tight">
-                      {emp.nome}
+                      {emp.name}
                     </h3>
                   </div>
                 </article>
+              );
+              const href = emp.href ?? (emp.slug ? `/empreendimentos/${emp.slug}` : null);
+              return href ? (
+                <Link key={emp.slug ?? emp.name} href={href} aria-label={`Conhecer ${emp.name}`}>
+                  {inner}
+                </Link>
+              ) : (
+                <div key={emp.name}>{inner}</div>
               );
             })}
           </div>
@@ -181,11 +229,11 @@ export default function Empreendimentos() {
           </div>
 
           <div className="flex items-center gap-1.5">
-            {empreendimentos.map((_, i) => (
+            {items.map((_, i) => (
               <button
                 key={i}
                 onClick={() => goTo(i)}
-                aria-label={`Ir para ${empreendimentos[i].nome}`}
+                aria-label={`Ir para ${items[i].name}`}
                 className={`h-1.5 rounded-full transition-all ${
                   i === activeIdx ? "w-6 bg-[var(--foreground)]" : "w-1.5 bg-[var(--border-strong)] hover:bg-[var(--foreground-soft)]"
                 }`}

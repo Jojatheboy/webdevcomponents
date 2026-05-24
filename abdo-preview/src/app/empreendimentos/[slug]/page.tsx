@@ -4,7 +4,6 @@ import Link from "next/link";
 import { ArrowLeft, MapPin, Calendar, Home } from "lucide-react";
 
 import Navbar from "@/components/blocks/Navbar";
-import Footer from "@/components/Footer";
 import { empreendimentos } from "@/lib/empreendimentos";
 
 export async function generateStaticParams() {
@@ -124,7 +123,6 @@ export default async function EmpreendimentoPage({
           </div>
         </div>
       </main>
-      <Footer />
     </>
   );
 }

@@ -46,12 +46,12 @@ export default function Loader({ children }: { children: React.ReactNode }) {
               className="relative z-10 flex flex-col items-center gap-10"
             >
               <Image
-                src="/images/scraped/002-LogoItajaiConstrutora.svg"
-                alt="Construtora Itajaí"
-                width={180}
-                height={50}
+                src="/images/logo-abdo-full.png"
+                alt="ABDO Construtora"
+                width={140}
+                height={132}
                 priority
-                className="h-14 md:h-16 w-auto object-contain"
+                className="h-28 md:h-32 w-auto object-contain"
               />
 
               {/* barra de progresso elegante em azul ABDO */}

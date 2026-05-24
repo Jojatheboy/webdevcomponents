@@ -13,18 +13,18 @@
 .animate-accordion-up { animation: accordion-up 0.2s cubic-bezier(.16,1,.3,1); }
 
 :root {
-  /* paleta Construtora Itajaí — laranja + cinza escuro + creme tinted */
-  --background: #fbfaf7;        /* creme tinted laranja, sem amarelado forte */
-  --surface: #f2efe9;
-  --foreground: #1a1612;        /* preto tintado quente (não puro) */
-  --foreground-soft: #4a423a;
-  --foreground-mute: #8a8076;
-  --accent: #f37a1f;            /* laranja real da marca */
-  --accent-dark: #d96510;
-  --dark-section: #1a1612;
-  --dark-section-text: #fbfaf7;
-  --border-subtle: rgba(26, 22, 18, 0.10);
-  --border-strong: rgba(26, 22, 18, 0.22);
+  /* paleta Construtora Itajaí — azul real detectado no scraper */
+  --background: #fbfcff;        /* branco tintado azul, sem amarelado */
+  --surface: #eef3fb;           /* azul muito leve */
+  --foreground: #09497a;        /* azul corporate real (cor da marca) */
+  --foreground-soft: #4a6385;
+  --foreground-mute: #8898b3;
+  --accent: #2a89c6;            /* azul mais brilhante (também na paleta original) */
+  --accent-dark: #1a6ea5;
+  --dark-section: #0a2e4f;      /* azul ABDO escuro pra seções dark */
+  --dark-section-text: #fbfcff;
+  --border-subtle: rgba(9, 73, 122, 0.10);
+  --border-strong: rgba(9, 73, 122, 0.22);
 
   --primary: var(--foreground);
   --primary-foreground: var(--background);
