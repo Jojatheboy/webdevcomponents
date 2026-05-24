@@ -1,8 +1,72 @@
 {
+  "brand": "#235497",
+  "accent": "#f7e700",
   "themeColor": null,
   "ogImage": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/SLIDE3.jpg",
-  "count": 13,
-  "detected": [
+  "byFamily": [
+    {
+      "family": "blue",
+      "total": 3,
+      "topColors": [
+        {
+          "color": "#235497",
+          "count": 1
+        },
+        {
+          "color": "#3b405d",
+          "count": 1
+        },
+        {
+          "color": "#012138",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "family": "yellow",
+      "total": 3,
+      "topColors": [
+        {
+          "color": "#ffc600",
+          "count": 1
+        },
+        {
+          "color": "#f7e700",
+          "count": 1
+        },
+        {
+          "color": "#ff0",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "family": "red",
+      "total": 4,
+      "topColors": [
+        {
+          "color": "#f00",
+          "count": 3
+        },
+        {
+          "color": "#d23e41",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "byContext": {
+    "headings": [],
+    "ctas": [],
+    "links": [
+      [
+        "#7f7f7f",
+        1
+      ]
+    ]
+  },
+  "count": 39,
+  "rawAll": [
     "#333",
     "#999",
     "#ccc",
@@ -13,8 +77,34 @@
     "#00f6b9",
     "#0062b4",
     "#f4f4f4",
+    "#398f14",
+    "#f00",
+    "#ffa500",
+    "#f7e700",
+    "#888",
+    "#ff0",
+    "#c0c0c0",
+    "#eee",
+    "#666",
+    "#fff9c0",
+    "#7f7f7f",
+    "#fafafa",
+    "#f1f1f1",
+    "#21759b",
+    "#444666",
+    "#f8f8f8",
+    "#a1a1a1",
+    "#3b405d",
+    "#012138",
     "rgba(255,255,255,0.81)",
     "rgba(255,255,255,0.9)",
-    "rgba(255,255,255,1)"
+    "rgba(255,255,255,1)",
+    "rgba(0,0,0,0.2)",
+    "rgba(0,0,0,0.25)",
+    "rgba(0,0,0,0)",
+    "rgba(0,0,0,0.6)",
+    "rgba(255,255,255,0.25)",
+    "rgba(255,255,255,0.5)",
+    "rgba(0,0,0,0.3)"
   ]
 }

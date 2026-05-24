@@ -1,50 +1,58 @@
 [
   {
     "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/logoabdo.png",
-    "file": "assets/001-logoabdo.png",
+    "file": "assets/icons/001-logoabdo.png",
     "role": "img",
+    "category": "icons",
     "bytes": 22058
   },
   {
     "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/facebook.png",
-    "file": "assets/002-facebook.png",
+    "file": "assets/icons/002-facebook.png",
     "role": "img",
+    "category": "icons",
     "bytes": 5645
   },
   {
     "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/instagram.png",
-    "file": "assets/003-instagram.png",
+    "file": "assets/icons/003-instagram.png",
     "role": "img",
+    "category": "icons",
     "bytes": 7014
   },
   {
     "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/logoemp.png",
-    "file": "assets/004-logoemp.png",
+    "file": "assets/icons/004-logoemp.png",
     "role": "img",
+    "category": "icons",
     "bytes": 38779
   },
   {
     "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/ACONSTRUTORA2.png",
-    "file": "assets/005-ACONSTRUTORA2.png",
+    "file": "assets/photos/005-ACONSTRUTORA2.png",
     "role": "img",
+    "category": "photos",
     "bytes": 33191
   },
   {
     "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/ACIDADE.png",
-    "file": "assets/006-ACIDADE.png",
+    "file": "assets/icons/006-ACIDADE.png",
     "role": "img",
+    "category": "icons",
     "bytes": 12322
   },
   {
     "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/empreendimentos.png",
-    "file": "assets/007-empreendimentos.png",
+    "file": "assets/icons/007-empreendimentos.png",
     "role": "img",
+    "category": "icons",
     "bytes": 14193
   },
   {
     "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/quadrado.png",
-    "file": "assets/008-quadrado.png",
+    "file": "assets/icons/008-quadrado.png",
     "role": "img",
+    "category": "icons",
     "bytes": 2225
   },
   {
@@ -54,8 +62,9 @@
   },
   {
     "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/SLIDE3.jpg",
-    "file": "assets/010-SLIDE3.jpg",
+    "file": "assets/photos/010-SLIDE3.jpg",
     "role": "img",
+    "category": "photos",
     "bytes": 581034
   },
   {
@@ -135,20 +144,72 @@
   },
   {
     "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/mapa.jpg",
-    "file": "assets/026-mapa.jpg",
+    "file": "assets/photos/026-mapa.jpg",
     "role": "img",
+    "category": "photos",
     "bytes": 920915
   },
   {
     "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/mapa.png",
-    "file": "assets/027-mapa.png",
+    "file": "assets/icons/027-mapa.png",
     "role": "img",
+    "category": "icons",
     "bytes": 15242
   },
   {
     "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/go.png",
-    "file": "assets/028-go.png",
+    "file": "assets/icons/028-go.png",
     "role": "img",
+    "category": "icons",
     "bytes": 2270
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/wp-content/uploads/2017/02/EMP2-1.jpeg",
+    "file": "assets/photos/029-EMP2-1.jpeg",
+    "role": "fallback-html",
+    "category": "photos",
+    "bytes": 59855
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/wp-content/uploads/2017/04/10653680_273396482871456_6496320019178371539_n.jpg",
+    "file": "assets/photos/030-10653680_273396482871456_6496320019178371539_n.jpg",
+    "role": "fallback-html",
+    "category": "photos",
+    "bytes": 103886
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/wp-content/uploads/2023/02/residencial-indianapolis-bc.jpeg",
+    "file": "assets/photos/031-residencial-indianapolis-bc.jpeg",
+    "role": "fallback-html",
+    "category": "photos",
+    "bytes": 35862
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/wp-content/uploads/2023/02/residencial-montemelo-bc.jpeg",
+    "file": "assets/photos/032-residencial-montemelo-bc.jpeg",
+    "role": "fallback-html",
+    "category": "photos",
+    "bytes": 30789
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/wp-content/uploads/2023/02/residencial-cidade-de-blumenau-gravata-navegantes.jpeg",
+    "file": "assets/photos/033-residencial-cidade-de-blumenau-gravata-navegantes.jpeg",
+    "role": "fallback-html",
+    "category": "photos",
+    "bytes": 32099
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/wp-content/uploads/2023/02/residencial-jose-ferreira-leal-navegantes.jpeg",
+    "file": "assets/photos/034-residencial-jose-ferreira-leal-navegantes.jpeg",
+    "role": "fallback-html",
+    "category": "photos",
+    "bytes": 28208
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/wp-content/uploads/2023/02/2033698086-1-600x450.jpg",
+    "file": "assets/photos/035-2033698086-1-600x450.jpg",
+    "role": "fallback-html",
+    "category": "photos",
+    "bytes": 52336
   }
 ]

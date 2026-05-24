@@ -2,6 +2,23 @@
 
 Biblioteca de components prontos pra reutilizar em qualquer projeto Next.js + Tailwind + framer-motion.
 
+## 🧱 Blocks (NOVO)
+
+Páginas inteiras parametrizadas — preencha `data` e use. Ver [`blocks/README.md`](./blocks/README.md).
+
+| Block | Pra que serve |
+|---|---|
+| `HeroSlideshow` | Hero fullwidth, slides com tipos diferentes, autoplay |
+| `AboutSection` | "Quem é a empresa" + foto + áreas + stats CountUp |
+| `TimelineSection` | Cronologia de marcos (grid ou vertical) |
+| `EmpreendimentosCarousel` | Cards verticais 3:4 em carousel horizontal |
+| `MCMVSection` | Banner de programa/oferta com 3 benefícios |
+| `FAQAccordion` | Busca + accordion expandable |
+| `ConsultoresGrid` | Grid 2col com foto + nome + CRECI |
+| `ContactFooter` | "Vamos conversar" + 4 cols + copyright |
+
+---
+
 Cada component:
 - É standalone (copia e cola, ajusta tokens, funciona)
 - Usa CSS variables (`--accent`, `--foreground`, `--background`, etc) — adapta sozinho à paleta

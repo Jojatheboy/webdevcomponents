@@ -3,7 +3,7 @@
 _A Construtora Itajaí atua com propriedade em importantes áreas da construção: empreendimentos imobiliários, edificações, restauros, urbanização, saneamento e mobilidade. Através de trabalho e gestão excelente, gera resultados sustentáveis em toda a cadeia, conquistando a confiança e cultivando relações de longo prazo._
 
 URL: https://www.construtoraitajai.com.br/encontreseuimovel
-Scrapado em: 2026-05-24T19:00:27.349Z
+Scrapado em: 2026-05-24T20:16:03.005Z
 
 ---
 
