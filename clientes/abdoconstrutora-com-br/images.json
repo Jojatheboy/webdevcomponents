@@ -1,0 +1,154 @@
+[
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/logoabdo.png",
+    "file": "assets/001-logoabdo.png",
+    "role": "img",
+    "bytes": 22058
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/facebook.png",
+    "file": "assets/002-facebook.png",
+    "role": "img",
+    "bytes": 5645
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/instagram.png",
+    "file": "assets/003-instagram.png",
+    "role": "img",
+    "bytes": 7014
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/logoemp.png",
+    "file": "assets/004-logoemp.png",
+    "role": "img",
+    "bytes": 38779
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/ACONSTRUTORA2.png",
+    "file": "assets/005-ACONSTRUTORA2.png",
+    "role": "img",
+    "bytes": 33191
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/ACIDADE.png",
+    "file": "assets/006-ACIDADE.png",
+    "role": "img",
+    "bytes": 12322
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/empreendimentos.png",
+    "file": "assets/007-empreendimentos.png",
+    "role": "img",
+    "bytes": 14193
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/quadrado.png",
+    "file": "assets/008-quadrado.png",
+    "role": "img",
+    "bytes": 2225
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/HOMES/close.png",
+    "role": "img",
+    "error": "HTTP 404"
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/SLIDE3.jpg",
+    "file": "assets/010-SLIDE3.jpg",
+    "role": "img",
+    "bytes": 581034
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/HOMES/1.jpeg",
+    "role": "img",
+    "error": "HTTP 404"
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/HOMES/2.jpeg",
+    "role": "img",
+    "error": "HTTP 404"
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/HOMES/3.jpeg",
+    "role": "img",
+    "error": "HTTP 404"
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/HOMES/4.jpeg",
+    "role": "img",
+    "error": "HTTP 404"
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/HOMES/5.jpeg",
+    "role": "img",
+    "error": "HTTP 404"
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/HOMES/6.jpeg",
+    "role": "img",
+    "error": "HTTP 404"
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/HOMES/7.jpeg",
+    "role": "img",
+    "error": "HTTP 404"
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/HOMES/8.jpeg",
+    "role": "img",
+    "error": "HTTP 404"
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/HOMES/9.jpeg",
+    "role": "img",
+    "error": "HTTP 404"
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/HOMES/10.jpeg",
+    "role": "img",
+    "error": "HTTP 404"
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/HOMES/11.jpeg",
+    "role": "img",
+    "error": "HTTP 404"
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/HOMES/12.jpeg",
+    "role": "img",
+    "error": "HTTP 404"
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/HOMES/13.jpeg",
+    "role": "img",
+    "error": "HTTP 404"
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/HOMES/14.jpeg",
+    "role": "img",
+    "error": "HTTP 404"
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/HOMES/15.jpeg",
+    "role": "img",
+    "error": "HTTP 404"
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/mapa.jpg",
+    "file": "assets/026-mapa.jpg",
+    "role": "img",
+    "bytes": 920915
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/mapa.png",
+    "file": "assets/027-mapa.png",
+    "role": "img",
+    "bytes": 15242
+  },
+  {
+    "url": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/go.png",
+    "file": "assets/028-go.png",
+    "role": "img",
+    "bytes": 2270
+  }
+]

@@ -1,0 +1,12 @@
+LEAD: Advogada - Fernanda Oliveira & Lailla Lopes
+CLASSIFICAÇÃO: QUENTE - sem site
+TELEFONE: (43) 3525-6818
+ENDEREÇO: R. Paraná, 1359
+CIDADE: Jacarezinho
+AVALIAÇÃO: 5.0 (2 avaliações)
+CATEGORIA: Advogado
+GANCHO: vi no Google que voces ainda nao tem site
+
+ARQUIVOS GERADOS:
+- preview.html (site preview)
+- relatorio.html (relatório de venda)

@@ -1,0 +1,286 @@
+<!--
+  ============================================================
+  TABELA COMPARATIVA ATENDLY — bloco único (HTML + CSS + JS)
+  Cole TUDO isto dentro de UM widget "HTML" do Elementor.
+  - Mesmo estilo do price section (Starter/Growth/Scale).
+  - Toggle troca a linha "Preço". Mobile: colunas arrastam lateral.
+  - TODO: trocar os href="#" pelos links de checkout.
+  ============================================================
+-->
+
+<style>
+/* ====== TABELA COMPARATIVA ATENDLY ====== */
+.ct,.ct *{box-sizing:border-box;}
+.ct{
+  font-family:"SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  max-width:1280px;margin:0 auto;padding:8px 16px;
+}
+.ct img{max-width:100%;display:block;}
+
+/* ---- toggle (igual ao price section) ---- */
+.ct-toggle-wrap{display:flex;justify-content:flex-start;margin-bottom:22px;}
+.ct-toggle{display:inline-flex;gap:4px;background:#241d2b;border-radius:999px;padding:5px;}
+.ct-toggle-btn{
+  display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;
+  font:inherit;font-size:15px;font-weight:600;color:rgba(255,255,255,.55);
+  background:transparent;padding:10px 22px;border-radius:999px;transition:background .2s,color .2s;
+}
+.ct .ct-toggle-btn,.ct .ct-toggle-btn:hover,.ct .ct-toggle-btn:focus,
+.ct .ct-toggle-btn:active{background:transparent!important;}
+.ct .ct-toggle-btn:hover{color:rgba(255,255,255,.85)!important;}
+.ct .ct-toggle-btn.is-active,.ct .ct-toggle-btn.is-active:hover,
+.ct .ct-toggle-btn.is-active:focus{background:#fff!important;color:#241d2b!important;}
+.ct-tbadge{font-size:11px;font-weight:700;padding:2px 7px;border-radius:6px;line-height:1;}
+.ct-tbadge--green{background:rgba(46,160,90,.18);color:#2ea05a;}
+.ct-tbadge--purple{background:rgba(139,92,246,.22);color:#8b5cf6;}
+
+/* ---- dica mobile ---- */
+.ct-hint{display:none;font-size:12.5px;color:#8a8595;margin:0 0 10px 2px;font-weight:500;}
+@media (max-width:768px){.ct-hint{display:block;}}
+
+/* ---- area com scroll lateral ---- */
+.ct-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:6px;}
+.ct-grid{display:flex;gap:14px;}
+
+/* ---- coluna de recursos (fixa no mobile) ---- */
+.ct-col-rec{
+  width:250px;flex:none;position:sticky;left:0;z-index:2;
+  background:#faf8fb;border:1px solid rgba(0,0,0,.07);border-radius:18px;
+  box-shadow:8px 0 18px -12px rgba(0,0,0,.25);
+}
+.ct-rec-head{height:150px;display:flex;align-items:center;gap:13px;padding:0 22px;}
+.ct-rec-ico{
+  width:44px;height:44px;flex:none;border-radius:12px;
+  background:rgba(124,92,219,.1);border:1px solid rgba(124,92,219,.2);
+  display:flex;align-items:center;justify-content:center;
+}
+.ct-rec-ico svg{width:26px;height:auto;display:block;}
+.ct-rec-title{font-size:22px;font-weight:800;color:#2b2420;letter-spacing:-.5px;}
+.ct-rec-sub{font-size:12.5px;color:#8a8595;font-weight:500;margin-top:3px;}
+.ct-rec-cell{
+  height:58px;display:flex;align-items:center;padding:0 24px;
+  font-size:14.5px;font-weight:500;color:#3a3546;
+  border-top:1px solid rgba(0,0,0,.07);
+}
+
+/* ---- colunas de plano ---- */
+.ct-col{
+  flex:1 1 244px;min-width:244px;border-radius:18px;overflow:hidden;
+  background-color:#1a1520;background-image:var(--ct-scrim),var(--ct-bg);
+  background-size:cover;background-position:top center;
+  border:1px solid var(--ct-border);color:var(--ct-text);
+}
+.ct-col--starter{
+  --ct-bg:url("https://upscalead.online/wp-content/uploads/2025/12/framezada.webp");
+  --ct-scrim:linear-gradient(rgba(252,251,249,.6),rgba(252,251,249,.72));
+  --ct-text:#2b2420;--ct-name:#2b2420;--ct-border:rgba(0,0,0,.1);
+  --ct-divider:rgba(0,0,0,.1);--ct-yes:#2f2a3a;
+  --ct-btn:linear-gradient(180deg,#ffffff,#e2ddd6);--ct-btn-text:#2b2420;
+}
+.ct-col--growth{
+  --ct-bg:url("https://upscalead.online/wp-content/uploads/2025/12/bg-.webp");
+  --ct-scrim:linear-gradient(rgba(14,6,1,.7),rgba(14,6,1,.7));
+  --ct-text:#fbeee5;--ct-name:#f2842f;--ct-border:rgba(242,132,47,.3);
+  --ct-divider:rgba(255,255,255,.1);--ct-yes:#f2842f;
+  --ct-btn:linear-gradient(180deg,#f9a64d,#e8731c);--ct-btn-text:#2a1505;
+}
+.ct-col--scale{
+  --ct-bg:url("https://upscalead.online/wp-content/uploads/2025/12/bg-3.webp");
+  --ct-scrim:linear-gradient(rgba(9,3,17,.7),rgba(9,3,17,.7));
+  --ct-text:#f1ecf9;--ct-name:#c9a6ff;--ct-border:rgba(168,85,247,.32);
+  --ct-divider:rgba(255,255,255,.1);--ct-yes:#a855f7;
+  --ct-btn:linear-gradient(180deg,#a855f7,#6366f1);--ct-btn-text:#ffffff;
+}
+
+.ct-plan-head{height:150px;padding:18px 20px;display:flex;flex-direction:column;justify-content:center;gap:14px;}
+.ct-plan-top{display:flex;align-items:center;gap:12px;}
+.ct-plan-ico{width:44px;height:44px;border-radius:12px;flex:none;border:1px solid var(--ct-border);object-fit:cover;}
+.ct-plan-name{font-size:21px;font-weight:800;color:var(--ct-name);letter-spacing:-.4px;}
+.ct-btn{
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;font:inherit;font-size:13.5px;font-weight:700;
+  letter-spacing:.5px;text-transform:uppercase;
+  padding:13px 14px;border-radius:12px;
+  background:var(--ct-btn);color:var(--ct-btn-text);
+  transition:transform .15s,filter .15s;
+}
+.ct a.ct-btn,.ct a.ct-btn:hover,.ct a.ct-btn:focus,.ct a.ct-btn:active,.ct a.ct-btn:visited{
+  background:var(--ct-btn)!important;color:var(--ct-btn-text)!important;text-decoration:none!important;
+}
+.ct a.ct-btn:hover{filter:brightness(1.05);transform:translateY(-1px);}
+
+.ct-val-cell{
+  height:58px;display:flex;align-items:center;justify-content:center;
+  padding:0 12px;text-align:center;
+  font-size:14.5px;font-weight:700;color:var(--ct-text);
+  border-top:1px solid var(--ct-divider);
+}
+.ct-val-cell--price{font-size:18px;font-weight:800;letter-spacing:-.3px;}
+.ct-price-suf{font-size:12px;font-weight:500;opacity:.6;margin-left:1px;}
+
+/* check / x — selo hexagonal */
+.ct-ico{
+  width:27px;height:27px;flex:none;
+  clip-path:polygon(50% 0%,95% 25%,95% 75%,50% 100%,5% 75%,5% 25%);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:13px;font-weight:900;line-height:1;
+}
+.ct-ico--yes{background:var(--ct-yes);}
+.ct-ico--no{background:#e5484d;}
+
+/* responsivo */
+@media (max-width:1040px){
+  /* abaixo de 1040 a tabela rola na horizontal — o grid assume a largura do
+     conteudo p/ a coluna Recursos ficar fixa (sticky) durante todo o scroll */
+  .ct-grid{width:max-content;}
+  .ct-col{flex:none;width:248px;}
+}
+@media (max-width:560px){
+  .ct-toggle-wrap{justify-content:center;}
+  .ct-toggle{width:100%;max-width:420px;gap:3px;}
+  .ct-toggle-btn{flex:1;justify-content:center;gap:5px;padding:9px 6px;font-size:12.5px;}
+  .ct-tbadge{font-size:8.5px;padding:2px 4px;}
+  .ct-col-rec{width:190px;}
+  .ct-rec-cell{padding:0 16px;font-size:13.5px;}
+  .ct-rec-head{padding:0 14px;gap:10px;}
+  .ct-rec-ico{width:40px;height:40px;}
+  .ct-rec-ico svg{width:23px;}
+  .ct-rec-title{font-size:19px;}
+}
+</style>
+
+<section class="ct">
+
+  <!-- ===== TOGGLE ===== -->
+  <div class="ct-toggle-wrap">
+    <div class="ct-toggle" role="tablist" aria-label="Período de cobrança">
+      <button type="button" class="ct-toggle-btn" data-period="mensal" role="tab" aria-selected="false">Mensal</button>
+      <button type="button" class="ct-toggle-btn" data-period="semestral" role="tab" aria-selected="false">
+        Semestral <span class="ct-tbadge ct-tbadge--green">-12%</span>
+      </button>
+      <button type="button" class="ct-toggle-btn is-active" data-period="anual" role="tab" aria-selected="true">
+        Anual <span class="ct-tbadge ct-tbadge--purple">-24%</span>
+      </button>
+    </div>
+  </div>
+
+  <p class="ct-hint">← Arraste para comparar os planos →</p>
+
+  <div class="ct-scroll">
+    <div class="ct-grid">
+
+      <!-- ===== COLUNA RECURSOS ===== -->
+      <div class="ct-col-rec">
+        <div class="ct-rec-head">
+          <span class="ct-rec-ico"><svg xmlns="http://www.w3.org/2000/svg" width="37" height="34" viewBox="0 0 37 34" fill="none"><path d="M6.16453 16.2115C8.27265 14.2275 11.5593 14.356 13.5064 16.4982L17.0315 20.3768L13.2147 23.9688C11.1065 25.9527 7.81982 25.8244 5.87282 23.6821C3.926 21.5398 4.05659 18.1955 6.16453 16.2115Z" fill="url(#paint0_linear_2088_5993)"></path><path d="M6.16453 16.2115C8.27265 14.2275 11.5593 14.356 13.5064 16.4982L17.0315 20.3768L13.2147 23.9688C11.1065 25.9527 7.81982 25.8244 5.87282 23.6821C3.926 21.5398 4.05659 18.1955 6.16453 16.2115Z" stroke="url(#paint1_linear_2088_5993)" style="mix-blend-mode:screen"></path><path d="M18.2607 6.93067C19.5843 6.98238 20.8929 7.54844 21.8656 8.61851L29.5906 17.1178C30.5638 18.1886 31.0188 19.5593 30.9658 20.9195C30.9127 22.2796 30.352 23.6106 29.2984 24.6023C27.1939 26.5829 23.9107 26.4547 21.967 24.3161L14.242 15.8168C12.2941 13.6732 12.4251 10.3174 14.5342 8.33224C15.5874 7.34111 16.937 6.87898 18.2607 6.93067Z" fill="url(#paint2_linear_2088_5993)"></path><path d="M18.2607 6.93067C19.5843 6.98238 20.8929 7.54844 21.8656 8.61851L29.5906 17.1178C30.5638 18.1886 31.0188 19.5593 30.9658 20.9195C30.9127 22.2796 30.352 23.6106 29.2984 24.6023C27.1939 26.5829 23.9107 26.4547 21.967 24.3161L14.242 15.8168C12.2941 13.6732 12.4251 10.3174 14.5342 8.33224C15.5874 7.34111 16.937 6.87898 18.2607 6.93067Z" stroke="url(#paint3_linear_2088_5993)" style="mix-blend-mode:screen"></path><defs><linearGradient id="paint0_linear_2088_5993" x1="1.62224" y1="27.6827" x2="12.9095" y2="17.4244" gradientUnits="userSpaceOnUse"><stop stop-color="#FFB5F8"></stop><stop offset="1" stop-color="#7747FF"></stop></linearGradient><linearGradient id="paint1_linear_2088_5993" x1="5.82842" y1="15.8413" x2="13.6969" y2="24.2022" gradientUnits="userSpaceOnUse"><stop stop-color="#9263FF"></stop><stop offset="1" stop-color="#573B99" stop-opacity="0.42"></stop></linearGradient><linearGradient id="paint2_linear_2088_5993" x1="14.2712" y1="8.05365" x2="26.7507" y2="21.3142" gradientUnits="userSpaceOnUse"><stop stop-color="#FFB5F8"></stop><stop offset="1" stop-color="#7747FF"></stop></linearGradient><linearGradient id="paint3_linear_2088_5993" x1="22.3022" y1="6.5881" x2="21.5307" y2="26.3469" gradientUnits="userSpaceOnUse"><stop stop-color="#9263FF"></stop><stop offset="1" stop-color="#573B99" stop-opacity="0.42"></stop></linearGradient></defs></svg></span>
+          <div class="ct-rec-txt"><div class="ct-rec-title">Recursos</div><div class="ct-rec-sub">Compare cada plano</div></div>
+        </div>
+        <div class="ct-rec-cell">Preço</div>
+        <div class="ct-rec-cell">Usuários incluídos</div>
+        <div class="ct-rec-cell">Usuário adicional</div>
+        <div class="ct-rec-cell">Workspace</div>
+        <div class="ct-rec-cell">Omnichannel</div>
+        <div class="ct-rec-cell">Funis de venda</div>
+        <div class="ct-rec-cell">Calendário de tarefas</div>
+        <div class="ct-rec-cell">Relatórios</div>
+        <div class="ct-rec-cell">Automações</div>
+        <div class="ct-rec-cell">Disparos em massa</div>
+      </div>
+
+      <!-- ===== STARTER ===== -->
+      <div class="ct-col ct-col--starter">
+        <div class="ct-plan-head">
+          <div class="ct-plan-top">
+            <img class="ct-plan-ico" src="https://upscalead.online/wp-content/uploads/2025/12/plano-starter.webp" alt="">
+            <span class="ct-plan-name">Starter</span>
+          </div>
+          <a href="#" class="ct-btn">Comece agora</a><!-- TODO: checkout Starter -->
+        </div>
+        <div class="ct-val-cell ct-val-cell--price"><span class="ct-price" data-plan="starter">R$ 202,92</span><span class="ct-price-suf">/mês</span></div>
+        <div class="ct-val-cell">1</div>
+        <div class="ct-val-cell">R$ 49,90</div>
+        <div class="ct-val-cell">1</div>
+        <div class="ct-val-cell">1 por canal</div>
+        <div class="ct-val-cell">1</div>
+        <div class="ct-val-cell"><span class="ct-ico ct-ico--yes" aria-label="Sim">✓</span></div>
+        <div class="ct-val-cell"><span class="ct-ico ct-ico--no" aria-label="Não">✕</span></div>
+        <div class="ct-val-cell"><span class="ct-ico ct-ico--no" aria-label="Não">✕</span></div>
+        <div class="ct-val-cell"><span class="ct-ico ct-ico--no" aria-label="Não">✕</span></div>
+      </div>
+
+      <!-- ===== GROWTH ===== -->
+      <div class="ct-col ct-col--growth">
+        <div class="ct-plan-head">
+          <div class="ct-plan-top">
+            <img class="ct-plan-ico" src="https://upscalead.online/wp-content/uploads/2025/12/asdasd.webp" alt="">
+            <span class="ct-plan-name">Growth</span>
+          </div>
+          <a href="#" class="ct-btn">Comece agora</a><!-- TODO: checkout Growth -->
+        </div>
+        <div class="ct-val-cell ct-val-cell--price"><span class="ct-price" data-plan="growth">R$ 301,72</span><span class="ct-price-suf">/mês</span></div>
+        <div class="ct-val-cell">2</div>
+        <div class="ct-val-cell">R$ 49,90</div>
+        <div class="ct-val-cell">1</div>
+        <div class="ct-val-cell">Todos inclusos</div>
+        <div class="ct-val-cell">Vários</div>
+        <div class="ct-val-cell"><span class="ct-ico ct-ico--yes" aria-label="Sim">✓</span></div>
+        <div class="ct-val-cell"><span class="ct-ico ct-ico--yes" aria-label="Sim">✓</span></div>
+        <div class="ct-val-cell"><span class="ct-ico ct-ico--yes" aria-label="Sim">✓</span></div>
+        <div class="ct-val-cell">2000/mês</div>
+      </div>
+
+      <!-- ===== SCALE ===== -->
+      <div class="ct-col ct-col--scale">
+        <div class="ct-plan-head">
+          <div class="ct-plan-top">
+            <img class="ct-plan-ico" src="https://upscalead.online/wp-content/uploads/2025/12/asasd.webp" alt="">
+            <span class="ct-plan-name">Scale</span>
+          </div>
+          <a href="#" class="ct-btn">Comece agora</a><!-- TODO: checkout Scale -->
+        </div>
+        <div class="ct-val-cell ct-val-cell--price"><span class="ct-price" data-plan="scale">R$ 453,72</span><span class="ct-price-suf">/mês</span></div>
+        <div class="ct-val-cell">3</div>
+        <div class="ct-val-cell">R$ 49,90</div>
+        <div class="ct-val-cell">1</div>
+        <div class="ct-val-cell">Todos inclusos</div>
+        <div class="ct-val-cell">Ilimitado</div>
+        <div class="ct-val-cell"><span class="ct-ico ct-ico--yes" aria-label="Sim">✓</span></div>
+        <div class="ct-val-cell"><span class="ct-ico ct-ico--yes" aria-label="Sim">✓</span></div>
+        <div class="ct-val-cell">Ilimitado</div>
+        <div class="ct-val-cell">Ilimitado</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  /* Preço por período — mesmos valores do price section (CRM) */
+  var PRICE = {
+    mensal:    { starter:"R$ 267,00", growth:"R$ 397,00", scale:"R$ 597,00" },
+    semestral: { starter:"R$ 234,96", growth:"R$ 349,36", scale:"R$ 525,36" },
+    anual:     { starter:"R$ 202,92", growth:"R$ 301,72", scale:"R$ 453,72" }
+  };
+  var root = document.querySelector('.ct');
+  if(!root) return;
+  var btns = root.querySelectorAll('.ct-toggle-btn');
+  var cells = root.querySelectorAll('.ct-price');
+
+  function render(period){
+    var d = PRICE[period];
+    if(!d) return;
+    cells.forEach(function(c){ c.textContent = d[c.getAttribute('data-plan')] || ''; });
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      btns.forEach(function(x){ x.classList.remove('is-active'); x.setAttribute('aria-selected','false'); });
+      b.classList.add('is-active'); b.setAttribute('aria-selected','true');
+      render(b.getAttribute('data-period'));
+    });
+  });
+  var init = root.querySelector('.ct-toggle-btn.is-active') || btns[0];
+  render(init.getAttribute('data-period'));
+})();
+</script>

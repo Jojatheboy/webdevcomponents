@@ -1,0 +1,23 @@
+{
+  "themeColor": null,
+  "ogImage": "https://lirp.cdn-website.com/267a308d/dms3rep/multi/opt/GrupoItajaiWhite2_Prancheta+1+co-pia+3-1920w.png",
+  "count": 16,
+  "detected": [
+    "rgba(255,255,255,1)",
+    "rgba(0,0,0,0)",
+    "rgba(0,0,0,0.25)",
+    "rgb(0,0,0)",
+    "rgb(255,255,255)",
+    "rgb(118,29,218)",
+    "rgb(164,35,223)",
+    "rgba(29,69,5,0.85)",
+    "rgba(116,7,25,0.85)",
+    "rgba(0,166,196,0.85)",
+    "rgba(129,129,129,0.85)",
+    "rgba(73,177,144,0.85)",
+    "rgba(49,49,49,1)",
+    "rgba(194,194,194,1)",
+    "rgba(4,33,52,0.85)",
+    "rgba(50,86,111,0.85)"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "themeColor": null,
+  "ogImage": "http://abdoconstrutora.com.br/ABDOCONSTRUTORA/ABDO/images/SLIDE3.jpg",
+  "count": 13,
+  "detected": [
+    "#333",
+    "#999",
+    "#ccc",
+    "#8211",
+    "#d23e41",
+    "#235497",
+    "#ffc600",
+    "#00f6b9",
+    "#0062b4",
+    "#f4f4f4",
+    "rgba(255,255,255,0.81)",
+    "rgba(255,255,255,0.9)",
+    "rgba(255,255,255,1)"
+  ]
+}

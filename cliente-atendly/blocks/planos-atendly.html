@@ -1,0 +1,382 @@
+<!--
+  ============================================================
+  PLANOS ATENDLY  —  bloco único (HTML + CSS + JS)
+  Cole TUDO isto dentro de UM widget "HTML" do Elementor,
+  no lugar do widget de Abas atual.
+  - Os 3 cards existem UMA vez. O toggle só troca o preço.
+  - Imagens: já apontam para o /wp-content/uploads (não precisa subir nada).
+  - TODO: trocar os href="#" pelos links de checkout de cada plano.
+  ============================================================
+-->
+
+<style>
+/* ====== PLANOS ATENDLY ====== */
+.atendly-planos,.atendly-planos *{box-sizing:border-box;}
+.atendly-planos{
+  font-family:"SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  max-width:1280px;margin:0 auto;padding:8px 16px;
+}
+.atendly-planos img{max-width:100%;display:block;}
+
+/* ---- toggle ---- */
+.ap-toggle-wrap{display:flex;justify-content:center;margin-bottom:40px;}
+.ap-toggle{display:inline-flex;gap:4px;background:#241d2b;border-radius:999px;padding:5px;}
+.ap-toggle-btn{
+  display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;
+  font:inherit;font-size:15px;font-weight:600;color:rgba(255,255,255,.55);
+  background:transparent;padding:10px 22px;border-radius:999px;
+  transition:background .2s,color .2s;
+}
+/* trava a cor do toggle em todos os estados — sobrepõe o hover de button do tema */
+.atendly-planos .ap-toggle-btn,
+.atendly-planos .ap-toggle-btn:hover,
+.atendly-planos .ap-toggle-btn:focus,
+.atendly-planos .ap-toggle-btn:active{background:transparent!important;}
+.atendly-planos .ap-toggle-btn:hover{color:rgba(255,255,255,.85)!important;}
+.atendly-planos .ap-toggle-btn.is-active,
+.atendly-planos .ap-toggle-btn.is-active:hover,
+.atendly-planos .ap-toggle-btn.is-active:focus,
+.atendly-planos .ap-toggle-btn.is-active:active{background:#fff!important;color:#241d2b!important;}
+.ap-tbadge{font-size:11px;font-weight:700;padding:2px 7px;border-radius:6px;line-height:1;}
+.ap-tbadge--green{background:rgba(46,160,90,.18);color:#2ea05a;}
+.ap-tbadge--purple{background:rgba(139,92,246,.22);color:#8b5cf6;}
+
+/* ---- grid + moldura individual por card ---- */
+.ap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start;}
+.ap-card-frame{
+  padding:8px;border-radius:34px;
+  border:1px solid var(--ap-frame-bd);
+  background:var(--ap-frame-bg);
+}
+.ap-card-frame--starter{--ap-frame-bd:rgba(0,0,0,.08);--ap-frame-bg:rgba(255,255,255,.6);}
+.ap-card-frame--growth{--ap-frame-bd:rgba(242,132,47,.32);--ap-frame-bg:rgba(242,132,47,.09);}
+.ap-card-frame--scale{--ap-frame-bd:rgba(168,85,247,.34);--ap-frame-bg:rgba(168,85,247,.1);}
+
+/* ---- card ---- */
+.ap-card{
+  position:relative;border-radius:26px;padding:28px;
+  background-color:#1a1520;background-image:var(--ap-bg);
+  background-size:cover;background-position:top center;
+  border:1px solid var(--ap-border);overflow:hidden;
+  display:flex;flex-direction:column;color:var(--ap-text);
+}
+/* scrim — escurece o topo p/ o texto ter contraste sobre o brilho do fundo */
+.ap-card::before{content:"";position:absolute;inset:0;background:var(--ap-scrim);pointer-events:none;}
+.ap-card>*{position:relative;z-index:1;}
+.ap-card--starter{
+  --ap-bg:url("https://upscalead.online/wp-content/uploads/2025/12/framezada.webp");
+  --ap-text:#2b2420;--ap-muted:rgba(43,36,32,.6);--ap-name:#2b2420;
+  --ap-accent:#8a7d72;--ap-ico-bg:rgba(43,36,32,.08);--ap-border:rgba(0,0,0,.1);
+  --ap-btn:linear-gradient(180deg,#ffffff,#e2ddd6);--ap-btn-text:#2b2420;--ap-old:rgba(43,36,32,.42);
+  --ap-scrim:linear-gradient(180deg,rgba(250,249,246,.55),rgba(250,249,246,.66));
+}
+.ap-card--growth{
+  --ap-bg:url("https://upscalead.online/wp-content/uploads/2025/12/bg-.webp");
+  --ap-text:#fbeee5;--ap-muted:rgba(251,238,229,.74);--ap-name:#f2842f;
+  --ap-accent:#f2842f;--ap-ico-bg:rgba(242,132,47,.16);--ap-border:rgba(242,132,47,.3);
+  --ap-btn:linear-gradient(180deg,#f9a64d,#e8731c);--ap-btn-text:#2a1505;--ap-old:rgba(251,238,229,.5);
+  --ap-scrim:linear-gradient(180deg,rgba(14,6,1,.90) 0%,rgba(14,6,1,.72) 30%,rgba(14,6,1,.68) 100%);
+}
+.ap-card--scale{
+  --ap-bg:url("https://upscalead.online/wp-content/uploads/2025/12/bg-3.webp");
+  --ap-text:#f1ecf9;--ap-muted:rgba(241,236,249,.74);--ap-name:#c9a6ff;
+  --ap-accent:#b98cff;--ap-ico-bg:rgba(168,85,247,.2);--ap-border:rgba(168,85,247,.32);
+  --ap-btn:linear-gradient(180deg,#a855f7,#6366f1);--ap-btn-text:#ffffff;--ap-old:rgba(241,236,249,.5);
+  --ap-scrim:linear-gradient(180deg,rgba(9,3,17,.90) 0%,rgba(9,3,17,.72) 30%,rgba(9,3,17,.68) 100%);
+}
+
+.ap-popular{
+  position:absolute;top:18px;right:18px;font-size:11px;font-weight:700;letter-spacing:.3px;
+  padding:5px 11px;border-radius:999px;background:rgba(242,132,47,.16);
+  color:#f2842f;border:1px solid rgba(242,132,47,.35);
+}
+
+.ap-icon{width:62px;height:62px;border-radius:16px;overflow:hidden;margin-bottom:20px;border:1px solid var(--ap-border);}
+.ap-icon img{width:100%;height:100%;object-fit:cover;}
+
+.ap-plan-name{font-size:20px;font-weight:700;color:var(--ap-name);margin-bottom:14px;}
+
+/* preço */
+.ap-price{margin-bottom:6px;}
+.ap-price.ap-anim{animation:apFade .35s ease;}
+@keyframes apFade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+.ap-price-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;min-height:24px;margin-bottom:4px;}
+.ap-price-old{font-size:15px;text-decoration:line-through;color:var(--ap-old);}
+.ap-price-economize{font-size:12px;font-weight:700;background:rgba(46,160,90,.16);color:#2ea05a;padding:3px 9px;border-radius:7px;}
+.ap-price-main{display:flex;align-items:flex-start;gap:3px;line-height:1;}
+.ap-price-currency{font-size:22px;font-weight:700;margin-top:8px;}
+.ap-price-int{font-size:54px;font-weight:800;letter-spacing:-1.5px;}
+.ap-price-dec{font-size:22px;font-weight:700;margin-top:6px;}
+.ap-price-period{font-size:15px;color:var(--ap-muted);margin-top:30px;font-weight:500;}
+.ap-price-cobrado{font-size:13px;color:var(--ap-muted);min-height:18px;margin-top:6px;}
+
+.ap-desc{font-size:14.5px;line-height:1.55;color:var(--ap-muted);margin:14px 0 20px;}
+
+.ap-btn{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  text-decoration:none;font:inherit;
+  font-size:15px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;
+  padding:14px 20px;border-radius:14px;background:var(--ap-btn);color:var(--ap-btn-text);
+  transition:transform .15s,filter .15s;
+}
+/* mantém a cor própria do botão em qualquer estado — sobrepõe o hover de link do tema */
+.atendly-planos a.ap-btn,
+.atendly-planos a.ap-btn:hover,
+.atendly-planos a.ap-btn:focus,
+.atendly-planos a.ap-btn:active,
+.atendly-planos a.ap-btn:visited{
+  background:var(--ap-btn)!important;
+  color:var(--ap-btn-text)!important;
+  text-decoration:none!important;
+}
+.atendly-planos a.ap-btn:hover{filter:brightness(1.05);transform:translateY(-1px);}
+/* grade de pontos animada — estilo dot-flow, JS vanilla (sem React/GSAP) */
+.ap-dots{display:grid;grid-template-columns:repeat(7,3px);gap:1.5px;flex:none;}
+.ap-dots i{width:3px;height:3px;border-radius:1px;background:currentColor;opacity:.22;transition:opacity .12s ease;}
+.ap-dots i.active{opacity:1;}
+
+.ap-divider{
+  display:flex;align-items:center;gap:12px;margin:24px 0 16px;
+  font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--ap-muted);
+}
+.ap-divider::before,.ap-divider::after{content:"";flex:1;height:1px;background:var(--ap-border);}
+
+.ap-features{list-style:none;margin:0;padding:0;}
+.ap-features li{display:flex;align-items:flex-start;gap:11px;padding:8px 0;font-size:14.5px;line-height:1.45;color:var(--ap-text);}
+.ap-fi{
+  flex:none;width:21px;height:21px;border-radius:7px;background:var(--ap-ico-bg);
+  color:var(--ap-accent);display:flex;align-items:center;justify-content:center;
+  font-size:15px;font-weight:700;line-height:1;margin-top:1px;
+}
+
+/* responsivo */
+@media (max-width:920px){.ap-grid{grid-template-columns:1fr;max-width:440px;margin:0 auto;}}
+@media (max-width:560px){
+  .ap-toggle{width:100%;max-width:420px;gap:3px;}
+  .ap-toggle-btn{flex:1;justify-content:center;gap:5px;padding:9px 6px;font-size:12.5px;}
+  .ap-tbadge{font-size:8.5px;padding:2px 4px;}
+  .ap-card{padding:22px;}
+  .ap-price-int{font-size:44px;}
+}
+</style>
+
+<section class="atendly-planos">
+
+  <!-- ===== TOGGLE ===== -->
+  <div class="ap-toggle-wrap">
+    <div class="ap-toggle" role="tablist" aria-label="Período de cobrança">
+      <button type="button" class="ap-toggle-btn" data-period="mensal" role="tab" aria-selected="false">Mensal</button>
+      <button type="button" class="ap-toggle-btn" data-period="semestral" role="tab" aria-selected="false">
+        Semestral <span class="ap-tbadge ap-tbadge--green">-12%</span>
+      </button>
+      <button type="button" class="ap-toggle-btn is-active" data-period="anual" role="tab" aria-selected="true">
+        Anual <span class="ap-tbadge ap-tbadge--purple">-24%</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== CARDS ===== -->
+  <div class="ap-grid">
+
+    <!-- ---- STARTER ---- -->
+    <div class="ap-card-frame ap-card-frame--starter">
+    <article class="ap-card ap-card--starter">
+      <div class="ap-icon">
+        <img src="https://upscalead.online/wp-content/uploads/2025/12/plano-starter.webp" alt="Ícone do plano Starter">
+      </div>
+      <h3 class="ap-plan-name">Plano Starter</h3>
+      <div class="ap-price" data-plan="starter">
+        <div class="ap-price-top">
+          <span class="ap-price-old"></span>
+          <span class="ap-price-economize"></span>
+        </div>
+        <div class="ap-price-main">
+          <span class="ap-price-currency">R$</span>
+          <span class="ap-price-int">202</span>
+          <span class="ap-price-dec">,92</span>
+          <span class="ap-price-period">/mês</span>
+        </div>
+        <p class="ap-price-cobrado"></p>
+      </div>
+      <p class="ap-desc">Ideal para times pequenos começando.</p>
+      <a href="#" class="ap-btn"><span class="ap-dots" aria-hidden="true"></span><span>Comece agora</span></a><!-- TODO: link de checkout Starter -->
+      <div class="ap-divider"><span>Recursos de destaque</span></div>
+      <ul class="ap-features">
+        <li><span class="ap-fi" aria-hidden="true">+</span>Até 5 pipelines (8 etapas)</li>
+        <li><span class="ap-fi" aria-hidden="true">+</span>Até 5.000 leads</li>
+        <li><span class="ap-fi" aria-hidden="true">+</span>Até 4 usuários</li>
+        <li><span class="ap-fi" aria-hidden="true">+</span>Até 8 automações</li>
+        <li><span class="ap-fi" aria-hidden="true">+</span>Até 3 conexões (WhatsApp + canais)</li>
+        <li><span class="ap-fi" aria-hidden="true">+</span>Até 3 webhooks</li>
+      </ul>
+    </article>
+    </div>
+
+    <!-- ---- GROWTH ---- -->
+    <div class="ap-card-frame ap-card-frame--growth">
+    <article class="ap-card ap-card--growth">
+      <span class="ap-popular">Mais popular</span>
+      <div class="ap-icon">
+        <img src="https://upscalead.online/wp-content/uploads/2025/12/asdasd.webp" alt="Ícone do plano Growth">
+      </div>
+      <h3 class="ap-plan-name">Plano Growth</h3>
+      <div class="ap-price" data-plan="growth">
+        <div class="ap-price-top">
+          <span class="ap-price-old"></span>
+          <span class="ap-price-economize"></span>
+        </div>
+        <div class="ap-price-main">
+          <span class="ap-price-currency">R$</span>
+          <span class="ap-price-int">301</span>
+          <span class="ap-price-dec">,72</span>
+          <span class="ap-price-period">/mês</span>
+        </div>
+        <p class="ap-price-cobrado"></p>
+      </div>
+      <p class="ap-desc">Perfeito para empresas em crescimento que precisam de mais funcionalidades.</p>
+      <a href="#" class="ap-btn"><span class="ap-dots" aria-hidden="true"></span><span>Comece agora</span></a><!-- TODO: link de checkout Growth -->
+      <div class="ap-divider"><span>Recursos de destaque</span></div>
+      <ul class="ap-features">
+        <li><span class="ap-fi" aria-hidden="true">+</span>Até 20 pipelines (15 etapas)</li>
+        <li><span class="ap-fi" aria-hidden="true">+</span>Até 100.000 leads</li>
+        <li><span class="ap-fi" aria-hidden="true">+</span>Até 10 usuários</li>
+        <li><span class="ap-fi" aria-hidden="true">+</span>Até 20 automações</li>
+        <li><span class="ap-fi" aria-hidden="true">+</span>Até 10 conexões</li>
+        <li><span class="ap-fi" aria-hidden="true">+</span>Até 10 webhooks</li>
+        <li><span class="ap-fi" aria-hidden="true">+</span>Acesso à API para integração</li>
+      </ul>
+    </article>
+    </div>
+
+    <!-- ---- SCALE ---- -->
+    <div class="ap-card-frame ap-card-frame--scale">
+    <article class="ap-card ap-card--scale">
+      <div class="ap-icon">
+        <img src="https://upscalead.online/wp-content/uploads/2025/12/asasd.webp" alt="Ícone do plano Scale">
+      </div>
+      <h3 class="ap-plan-name">Plano Scale</h3>
+      <div class="ap-price" data-plan="scale">
+        <div class="ap-price-top">
+          <span class="ap-price-old"></span>
+          <span class="ap-price-economize"></span>
+        </div>
+        <div class="ap-price-main">
+          <span class="ap-price-currency">R$</span>
+          <span class="ap-price-int">453</span>
+          <span class="ap-price-dec">,72</span>
+          <span class="ap-price-period">/mês</span>
+        </div>
+        <p class="ap-price-cobrado"></p>
+      </div>
+      <p class="ap-desc">Para empresas escalando sem limites.</p>
+      <a href="#" class="ap-btn"><span class="ap-dots" aria-hidden="true"></span><span>Comece agora</span></a><!-- TODO: link de checkout Scale -->
+      <div class="ap-divider"><span>Recursos de destaque</span></div>
+      <ul class="ap-features">
+        <li><span class="ap-fi" aria-hidden="true">+</span>Pipelines ilimitadas</li>
+        <li><span class="ap-fi" aria-hidden="true">+</span>Leads ilimitados</li>
+        <li><span class="ap-fi" aria-hidden="true">+</span>Usuários ilimitados</li>
+        <li><span class="ap-fi" aria-hidden="true">+</span>Automações ilimitadas</li>
+        <li><span class="ap-fi" aria-hidden="true">+</span>Conexões ilimitadas</li>
+        <li><span class="ap-fi" aria-hidden="true">+</span>Webhooks ilimitados</li>
+        <li><span class="ap-fi" aria-hidden="true">+</span>Acesso à API para integração</li>
+      </ul>
+    </article>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function(){
+  /* Única fonte de preços — vinda do CRM. Editar SÓ aqui se mudar valor. */
+  var PRICING = {
+    mensal: {
+      starter: { int:"267", dec:",00" },
+      growth:  { int:"397", dec:",00" },
+      scale:   { int:"597", dec:",00" }
+    },
+    semestral: {
+      starter: { int:"234", dec:",96", old:"R$ 267,00", economize:"Economize R$ 192,24", cobrado:"Cobrado R$ 1.409,76 a cada 6 meses" },
+      growth:  { int:"349", dec:",36", old:"R$ 397,00", economize:"Economize R$ 285,84", cobrado:"Cobrado R$ 2.096,16 a cada 6 meses" },
+      scale:   { int:"525", dec:",36", old:"R$ 597,00", economize:"Economize R$ 429,84", cobrado:"Cobrado R$ 3.152,16 a cada 6 meses" }
+    },
+    anual: {
+      starter: { int:"202", dec:",92", old:"R$ 267,00", economize:"Economize R$ 768,96", cobrado:"Cobrado R$ 2.435,04 anualmente" },
+      growth:  { int:"301", dec:",72", old:"R$ 397,00", economize:"Economize R$ 1.143,36", cobrado:"Cobrado R$ 3.620,64 anualmente" },
+      scale:   { int:"453", dec:",72", old:"R$ 597,00", economize:"Economize R$ 1.719,36", cobrado:"Cobrado R$ 5.444,64 anualmente" }
+    }
+  };
+
+  var root = document.querySelector('.atendly-planos');
+  if(!root) return;
+  var toggleBtns = root.querySelectorAll('.ap-toggle-btn');
+  var priceBlocks = root.querySelectorAll('.ap-price');
+
+  function render(period){
+    var data = PRICING[period];
+    if(!data) return;
+    priceBlocks.forEach(function(block){
+      var p = data[block.getAttribute('data-plan')];
+      if(!p) return;
+      var hasDiscount = !!p.old;
+      block.querySelector('.ap-price-int').textContent = p.int;
+      block.querySelector('.ap-price-dec').textContent = p.dec;
+      block.querySelector('.ap-price-old').textContent = hasDiscount ? p.old : '';
+      block.querySelector('.ap-price-economize').textContent = hasDiscount ? p.economize : '';
+      block.querySelector('.ap-price-cobrado').textContent = hasDiscount ? p.cobrado : '';
+      block.classList.remove('ap-anim');
+      void block.offsetWidth;            /* reinicia a animação */
+      block.classList.add('ap-anim');
+    });
+  }
+
+  toggleBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      toggleBtns.forEach(function(b){ b.classList.remove('is-active'); b.setAttribute('aria-selected','false'); });
+      btn.classList.add('is-active'); btn.setAttribute('aria-selected','true');
+      render(btn.getAttribute('data-period'));
+    });
+  });
+
+  var initial = root.querySelector('.ap-toggle-btn.is-active') || toggleBtns[0];
+  render(initial.getAttribute('data-period'));
+})();
+
+/* ---- grade de pontos animada (estilo dot-flow, sem React/GSAP) ---- */
+(function(){
+  /* setinha apontando pra cima — sobe um pixel por frame, sai pelo topo e volta por baixo */
+  var FRAMES = [
+    [45],
+    [38,44,45,46],
+    [31,37,38,39,43,44,45,46,47],
+    [24,30,31,32,36,37,38,39,40,45],
+    [17,23,24,25,29,30,31,32,33,38,45],
+    [10,16,17,18,22,23,24,25,26,31,38],
+    [3,9,10,11,15,16,17,18,19,24,31],
+    [2,3,4,8,9,10,11,12,17,24],
+    [1,2,3,4,5,10,17],
+    [3,10],
+    [3]
+  ];
+  var grids = document.querySelectorAll('.atendly-planos .ap-dots');
+  if(!grids.length) return;
+  var sets = [];
+  grids.forEach(function(grid){
+    var dots = [];
+    for(var i=0;i<49;i++){ var d=document.createElement('i'); grid.appendChild(d); dots.push(d); }
+    sets.push(dots);
+  });
+  var frame = 0;
+  function tick(){
+    var f = FRAMES[frame];
+    sets.forEach(function(dots){
+      for(var i=0;i<49;i++){ dots[i].classList.toggle('active', f.indexOf(i)!==-1); }
+    });
+    frame = (frame + 1) % FRAMES.length;
+  }
+  tick();
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(!reduce) setInterval(tick, 150);
+})();
+</script>

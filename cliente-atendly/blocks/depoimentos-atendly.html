@@ -1,0 +1,171 @@
+<!--
+  ============================================================
+  DEPOIMENTOS ATENDLY — 3 colunas em loop (HTML + CSS, sem JS)
+  Cole TUDO isto dentro de UM widget "HTML" do Elementor.
+  - O título da seção fica num widget separado (acima deste).
+  - Fotos reais dos clientes (wp-content da Atendly).
+  ============================================================
+-->
+
+<style>
+/* ====== DEPOIMENTOS ATENDLY ====== */
+.atd-tst,.atd-tst *{box-sizing:border-box;}
+.atd-tst{
+  font-family:"SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  max-width:1280px;margin:0 auto;padding:8px 16px;
+}
+.atd-tst-cols{
+  display:flex;justify-content:center;gap:24px;
+  max-height:740px;overflow:hidden;
+  -webkit-mask-image:linear-gradient(to bottom,transparent,#000 22%,#000 78%,transparent);
+  mask-image:linear-gradient(to bottom,transparent,#000 22%,#000 78%,transparent);
+}
+.atd-tst-col{width:340px;flex:none;}
+.atd-tst-track{display:flex;flex-direction:column;gap:24px;padding-bottom:24px;}
+.atd-tst-col--1 .atd-tst-track{animation:atdScroll 26s linear infinite;}
+.atd-tst-col--2 .atd-tst-track{animation:atdScroll 32s linear infinite;}
+.atd-tst-col--3 .atd-tst-track{animation:atdScroll 29s linear infinite;}
+.atd-tst-col:hover .atd-tst-track{animation-play-state:paused;}
+@keyframes atdScroll{to{transform:translateY(-50%);}}
+
+.atd-card{
+  background:#fff;border:1px solid rgba(124,92,219,.14);
+  border-radius:24px;padding:34px;
+  box-shadow:0 18px 40px -24px rgba(124,92,219,.35);
+}
+.atd-card-text{font-size:15px;line-height:1.62;color:#3a3546;margin:0;}
+.atd-card-foot{display:flex;align-items:center;gap:12px;margin-top:22px;}
+.atd-tst .atd-card-foot img.atd-avatar{
+  width:46px!important;height:46px!important;border-radius:50%!important;
+  flex:none;object-fit:cover!important;display:block;background:#ede8f6;
+}
+.atd-card-name{font-size:15px;font-weight:700;color:#6d54c8;letter-spacing:-.2px;line-height:1.3;}
+.atd-card-role{font-size:13px;color:#8a8595;line-height:1.35;}
+
+/* responsivo: 3 colunas > 2 (tablet) > 1 (mobile) */
+@media (max-width:1024px){.atd-tst-col--3{display:none;}}
+@media (max-width:768px){.atd-tst-col--2{display:none;}}
+@media (max-width:560px){
+  .atd-tst-col{width:100%;max-width:360px;}
+  .atd-card{padding:26px;}
+}
+@media (prefers-reduced-motion:reduce){.atd-tst-track{animation:none;}}
+</style>
+
+<section class="atd-tst">
+  <div class="atd-tst-cols">
+
+    <!-- ===== COLUNA 1 ===== -->
+    <div class="atd-tst-col atd-tst-col--1">
+      <div class="atd-tst-track">
+        <!-- Rodrigo -->
+        <div class="atd-card">
+          <p class="atd-card-text">“O Atendly transformou a forma como gerenciamos nossas operações nas franquias. Depois que homologamos o sistema em toda a rede, os franqueados começaram a alcançar resultados expressivos. A organização dos atendimentos e a agilidade na comunicação com os clientes fizeram toda a diferença. É uma ferramenta essencial para o sucesso do nosso negócio.”</p>
+          <div class="atd-card-foot">
+            <img class="atd-avatar" src="https://upscalead.online/wp-content/uploads/2025/12/a3-1.webp" alt="">
+            <div><div class="atd-card-name">Rodrigo D'Paula</div><div class="atd-card-role">CEO da Botopremium</div></div>
+          </div>
+        </div>
+        <!-- João -->
+        <div class="atd-card">
+          <p class="atd-card-text">“O Atendly foi essencial para o nosso crescimento. Começamos com uma equipe pequena e, à medida que expandimos, o sistema acompanhou sem dificuldade. É bom saber que temos uma ferramenta que cresce com a gente.”</p>
+          <div class="atd-card-foot">
+            <img class="atd-avatar" src="https://upscalead.online/wp-content/uploads/2025/12/a6-1.webp" alt="">
+            <div><div class="atd-card-name">João Viana</div><div class="atd-card-role">Fundador de Startup</div></div>
+          </div>
+        </div>
+        <!-- duplicata p/ loop -->
+        <div class="atd-card" aria-hidden="true">
+          <p class="atd-card-text">“O Atendly transformou a forma como gerenciamos nossas operações nas franquias. Depois que homologamos o sistema em toda a rede, os franqueados começaram a alcançar resultados expressivos. A organização dos atendimentos e a agilidade na comunicação com os clientes fizeram toda a diferença. É uma ferramenta essencial para o sucesso do nosso negócio.”</p>
+          <div class="atd-card-foot">
+            <img class="atd-avatar" src="https://upscalead.online/wp-content/uploads/2025/12/a3-1.webp" alt="">
+            <div><div class="atd-card-name">Rodrigo D'Paula</div><div class="atd-card-role">CEO da Botopremium</div></div>
+          </div>
+        </div>
+        <div class="atd-card" aria-hidden="true">
+          <p class="atd-card-text">“O Atendly foi essencial para o nosso crescimento. Começamos com uma equipe pequena e, à medida que expandimos, o sistema acompanhou sem dificuldade. É bom saber que temos uma ferramenta que cresce com a gente.”</p>
+          <div class="atd-card-foot">
+            <img class="atd-avatar" src="https://upscalead.online/wp-content/uploads/2025/12/a6-1.webp" alt="">
+            <div><div class="atd-card-name">João Viana</div><div class="atd-card-role">Fundador de Startup</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== COLUNA 2 ===== -->
+    <div class="atd-tst-col atd-tst-col--2">
+      <div class="atd-tst-track">
+        <!-- Carolina -->
+        <div class="atd-card">
+          <p class="atd-card-text">“Além de ser um sistema excelente, o suporte deles é incrível! Sempre que precisamos de ajuda, somos atendidos rápido e com muita atenção. Isso faz muita diferença pra gente.”</p>
+          <div class="atd-card-foot">
+            <img class="atd-avatar" src="https://upscalead.online/wp-content/uploads/2025/12/a7.webp" alt="">
+            <div><div class="atd-card-name">Carolina Souza</div><div class="atd-card-role">Gestora de Relacionamento</div></div>
+          </div>
+        </div>
+        <!-- Jaqueline -->
+        <div class="atd-card">
+          <p class="atd-card-text">“Com o Atendly, nossos tempos de resposta caíram pela metade. O sistema é muito eficiente em priorizar o que realmente importa. Os clientes estão notando, e nossa reputação só cresce.”</p>
+          <div class="atd-card-foot">
+            <img class="atd-avatar" src="https://upscalead.online/wp-content/uploads/2025/12/a4-1.webp" alt="">
+            <div><div class="atd-card-name">Jaqueline Araújo</div><div class="atd-card-role">Diretora Comercial</div></div>
+          </div>
+        </div>
+        <!-- duplicata p/ loop -->
+        <div class="atd-card" aria-hidden="true">
+          <p class="atd-card-text">“Além de ser um sistema excelente, o suporte deles é incrível! Sempre que precisamos de ajuda, somos atendidos rápido e com muita atenção. Isso faz muita diferença pra gente.”</p>
+          <div class="atd-card-foot">
+            <img class="atd-avatar" src="https://upscalead.online/wp-content/uploads/2025/12/a7.webp" alt="">
+            <div><div class="atd-card-name">Carolina Souza</div><div class="atd-card-role">Gestora de Relacionamento</div></div>
+          </div>
+        </div>
+        <div class="atd-card" aria-hidden="true">
+          <p class="atd-card-text">“Com o Atendly, nossos tempos de resposta caíram pela metade. O sistema é muito eficiente em priorizar o que realmente importa. Os clientes estão notando, e nossa reputação só cresce.”</p>
+          <div class="atd-card-foot">
+            <img class="atd-avatar" src="https://upscalead.online/wp-content/uploads/2025/12/a4-1.webp" alt="">
+            <div><div class="atd-card-name">Jaqueline Araújo</div><div class="atd-card-role">Diretora Comercial</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== COLUNA 3 ===== -->
+    <div class="atd-tst-col atd-tst-col--3">
+      <div class="atd-tst-track">
+        <!-- Alan -->
+        <div class="atd-card">
+          <p class="atd-card-text">“A implantação do Atendly no IAMAC foi um divisor de águas para a nossa rede. O sistema trouxe mais organização e eficiência no dia a dia das unidades, e nossos franqueados sentiram os resultados rapidamente. A gestão centralizada dos atendimentos melhorou a experiência dos nossos alunos e clientes, contribuindo diretamente para o sucesso das franquias.”</p>
+          <div class="atd-card-foot">
+            <img class="atd-avatar" src="https://upscalead.online/wp-content/uploads/2025/12/a2-1.webp" alt="">
+            <div><div class="atd-card-name">Dr. Alan Macário</div><div class="atd-card-role">Fundador do IAMAC</div></div>
+          </div>
+        </div>
+        <!-- Manoel -->
+        <div class="atd-card">
+          <p class="atd-card-text">“Agora eu consigo acompanhar todas as interações com nossos clientes de forma organizada. Antes, era difícil manter o controle, mas o Atendly trouxe a clareza que faltava. O feedback dos clientes também melhorou bastante.”</p>
+          <div class="atd-card-foot">
+            <img class="atd-avatar" src="https://upscalead.online/wp-content/uploads/2025/12/q5-1.webp" alt="">
+            <div><div class="atd-card-name">Manoel Ferreira</div><div class="atd-card-role">Diretor de Operações</div></div>
+          </div>
+        </div>
+        <!-- duplicata p/ loop -->
+        <div class="atd-card" aria-hidden="true">
+          <p class="atd-card-text">“A implantação do Atendly no IAMAC foi um divisor de águas para a nossa rede. O sistema trouxe mais organização e eficiência no dia a dia das unidades, e nossos franqueados sentiram os resultados rapidamente. A gestão centralizada dos atendimentos melhorou a experiência dos nossos alunos e clientes, contribuindo diretamente para o sucesso das franquias.”</p>
+          <div class="atd-card-foot">
+            <img class="atd-avatar" src="https://upscalead.online/wp-content/uploads/2025/12/a2-1.webp" alt="">
+            <div><div class="atd-card-name">Dr. Alan Macário</div><div class="atd-card-role">Fundador do IAMAC</div></div>
+          </div>
+        </div>
+        <div class="atd-card" aria-hidden="true">
+          <p class="atd-card-text">“Agora eu consigo acompanhar todas as interações com nossos clientes de forma organizada. Antes, era difícil manter o controle, mas o Atendly trouxe a clareza que faltava. O feedback dos clientes também melhorou bastante.”</p>
+          <div class="atd-card-foot">
+            <img class="atd-avatar" src="https://upscalead.online/wp-content/uploads/2025/12/q5-1.webp" alt="">
+            <div><div class="atd-card-name">Manoel Ferreira</div><div class="atd-card-role">Diretor de Operações</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

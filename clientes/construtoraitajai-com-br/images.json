@@ -1,0 +1,93 @@
+[
+  {
+    "url": "https://irp.cdn-website.com/94faebd1/dms3rep/multi/LogoItajaiConstrutoraWhite-30e1444a.svg",
+    "file": "assets/icons/001-LogoItajaiConstrutoraWhite-30e1444a.svg",
+    "role": "img",
+    "category": "icons",
+    "bytes": 6570
+  },
+  {
+    "url": "https://irp.cdn-website.com/94faebd1/dms3rep/multi/LogoItajaiConstrutora.svg",
+    "file": "assets/icons/002-LogoItajaiConstrutora.svg",
+    "role": "img",
+    "category": "icons",
+    "bytes": 2017
+  },
+  {
+    "url": "https://dd-cdn.multiscreensite.com/editor/whatsApp/whatsapp_layout_5.svg",
+    "file": "assets/icons/003-whatsapp_layout_5.svg",
+    "role": "img",
+    "category": "icons",
+    "bytes": 3440
+  },
+  {
+    "url": "https://irp.cdn-website.com/94faebd1/dms3rep/multi/LogoConstrutora.svg",
+    "file": "assets/icons/004-LogoConstrutora.svg",
+    "role": "img",
+    "category": "icons",
+    "bytes": 6705
+  },
+  {
+    "url": "https://lirp.cdn-website.com/267a308d/dms3rep/multi/opt/GrupoItajaiWhite2_Prancheta+1+co-pia+3-1920w.png",
+    "file": "assets/icons/005-GrupoItajaiWhite2_Prancheta_1_co-pia_3-1920w.png",
+    "role": "og-image",
+    "category": "icons",
+    "bytes": 12613
+  },
+  {
+    "url": "https://irp.cdn-website.com/267a308d/dms3rep/multi/GrupoItajaiWhite2_Prancheta+1+co-pia+3.png",
+    "file": "assets/icons/006-GrupoItajaiWhite2_Prancheta_1_co-pia_3.png",
+    "role": "favicon",
+    "category": "icons",
+    "bytes": 12613
+  },
+  {
+    "url": "https://lirp.cdn-website.com/94faebd1/dms3rep/multi/opt/pjeRvKo8MSwp-2880w.jpeg",
+    "file": "assets/photos/007-pjeRvKo8MSwp-2880w.jpeg",
+    "role": "fallback-html",
+    "category": "photos",
+    "bytes": 108754
+  },
+  {
+    "url": "https://lirp.cdn-website.com/94faebd1/dms3rep/multi/opt/americana-apartamento-padrao-jardim-da-balsa-ii-24-03-2022_08-11-18-0-2880w.jpeg",
+    "file": "assets/photos/008-americana-apartamento-padrao-jardim-da-balsa-ii-24-03-2022_08-11-18-0-2880w.jpeg",
+    "role": "fallback-html",
+    "category": "photos",
+    "bytes": 66776
+  },
+  {
+    "url": "https://lirp.cdn-website.com/94faebd1/dms3rep/multi/opt/apartamento-com-2-quartos-para-alugar-55m-no-jardim-da-balsa-ii-americana-2880w.jpeg",
+    "file": "assets/photos/009-apartamento-com-2-quartos-para-alugar-55m-no-jardim-da-balsa-ii-americana-2880w.jpeg",
+    "role": "fallback-html",
+    "category": "photos",
+    "bytes": 78192
+  },
+  {
+    "url": "https://lirp.cdn-website.com/94faebd1/dms3rep/multi/opt/IMA-COND_JANAINA-FACHADA-R01-2880w.jpg",
+    "file": "assets/photos/010-IMA-COND_JANAINA-FACHADA-R01-2880w.jpg",
+    "role": "fallback-html",
+    "category": "photos",
+    "bytes": 574931
+  },
+  {
+    "url": "https://lirp.cdn-website.com/94faebd1/dms3rep/multi/opt/TORRE_JPG-baad7614-2880w.jpg",
+    "file": "assets/photos/011-TORRE_JPG-baad7614-2880w.jpg",
+    "role": "fallback-html",
+    "category": "photos",
+    "bytes": 147641
+  },
+  {
+    "url": "https://lirp.cdn-website.com/94faebd1/dms3rep/multi/opt/PONTA-3013f4ca-2880w.png",
+    "file": "assets/photos/012-PONTA-3013f4ca-2880w.png",
+    "role": "fallback-html",
+    "category": "photos",
+    "bytes": 1924348
+  },
+  {
+    "url": "https://lirp.cdn-website.com/94faebd1/dms3rep/multi/opt/iracema-banner-site-1080-380px-3-88865ab2-2880w.png",
+    "file": "assets/photos/013-iracema-banner-site-1080-380px-3-88865ab2-2880w.png",
+    "role": "fallback-html",
+    "category": "photos",
+    "bytes": 634305
+  }
+]

@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{nome}} — {{ramo}} em {{cidade}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #09090b;
+      color: #e5e5e5;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      text-wrap: balance;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ===== TAG PILL ===== */
+    .tag-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #a1a1aa;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .tag-pill::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #e5e5e5;
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn-metal {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 32px;
+      background: linear-gradient(180deg, #2a2a2d 0%, #18181b 100%);
+      color: #e5e5e5;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 2px 8px rgba(0, 0, 0, 0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-metal::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+      animation: metalShine 4s infinite;
+    }
+
+    .btn-metal:hover {
+      transform: translateY(-1px);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 4px 16px rgba(0, 0, 0, 0.5);
+    }
+
+    @keyframes metalShine {
+      0% { left: -100%; }
+      30% { left: 120%; }
+      100% { left: 120%; }
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 28px;
+      background: #e5e5e5;
+      color: #09090b;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      background: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 28px;
+      background: transparent;
+      color: #a1a1aa;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      color: #e5e5e5;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes wordSwap {
+      0%, 20% { opacity: 1; transform: translateY(0); }
+      25%, 30% { opacity: 0; transform: translateY(-12px); }
+      35%, 55% { opacity: 1; transform: translateY(0); }
+      60%, 65% { opacity: 0; transform: translateY(-12px); }
+      70%, 90% { opacity: 1; transform: translateY(0); }
+      95%, 100% { opacity: 0; transform: translateY(-12px); }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in-d1 { transition-delay: 0.1s; }
+    .fade-in-d2 { transition-delay: 0.2s; }
+    .fade-in-d3 { transition-delay: 0.3s; }
+    .fade-in-d4 { transition-delay: 0.4s; }
+
+    /* ===== HEADER ===== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(9, 9, 11, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .header-logo {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+    }
+
+    .header-nav {
+      display: none;
+      gap: 32px;
+    }
+
+    @media (min-width: 768px) {
+      .header-nav { display: flex; }
+    }
+
+    .header-nav a {
+      font-size: 0.875rem;
+      color: #71717a;
+      transition: color 0.2s ease;
+    }
+
+    .header-nav a:hover { color: #e5e5e5; }
+
+    .header-cta .btn-primary {
+      padding: 8px 20px;
+      font-size: 0.8125rem;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      padding-top: 120px;
+      padding-bottom: 3rem;
+      overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        padding-top: 140px;
+        padding-bottom: 4rem;
+      }
+    }
+
+    .hero-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 20%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 20%, transparent 70%);
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 720px;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.03em;
+    }
+
+    @media (min-width: 768px) {
+      .hero-title { font-size: 3.5rem; }
+    }
+
+    .hero-word-swap {
+      display: inline-block;
+      position: relative;
+      color: #ffffff;
+    }
+
+    .hero-word-swap span {
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      transform: translateY(12px);
+      animation: wordCycle 9s infinite;
+      white-space: nowrap;
+    }
+
+    .hero-word-swap span:nth-child(1) { animation-delay: 0s; }
+    .hero-word-swap span:nth-child(2) { animation-delay: 3s; }
+    .hero-word-swap span:nth-child(3) { animation-delay: 6s; }
+
+    @keyframes wordCycle {
+      0%, 5% { opacity: 0; transform: translateY(12px); }
+      10%, 28% { opacity: 1; transform: translateY(0); }
+      33%, 100% { opacity: 0; transform: translateY(-12px); }
+    }
+
+    .hero-subtitle {
+      font-size: 1.0625rem;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 540px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 3rem;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      overflow: hidden;
+      max-width: 480px;
+    }
+
+    .hero-stat {
+      background: #111113;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .hero-stat-value {
+      font-size: 1.375rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 2px;
+    }
+
+    .hero-stat-label {
+      font-size: 0.6875rem;
+      color: rgba(255, 255, 255, 0.25);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* ===== SERVICES BENTO ===== */
+    .services {
+      padding: 3rem 0;
+    }
+
+    @media (min-width: 768px) {
+      .services { padding: 4rem 0; }
+    }
+
+    .section-header { margin-bottom: 2rem; }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    @media (min-width: 768px) {
+      .section-title { font-size: 2.25rem; }
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 480px;
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1px;
+      background: transparent;
+      border: 1px dashed rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+      .bento-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .bento-grid .bento-cell:first-child {
+        grid-column: span 2;
+      }
+    }
+
+    .bento-cell {
+      padding: 28px 24px;
+      border: 1px dashed rgba(255, 255, 255, 0.06);
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s ease;
+    }
+
+    .bento-cell::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+      background-size: 12px 12px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .bento-cell:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .bento-cell:hover::after {
+      opacity: 1;
+    }
+
+    .bento-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    .bento-cell h3 {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 6px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .bento-cell p {
+      font-size: 0.8125rem;
+      color: rgba(255, 255, 255, 0.4);
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== ABOUT ===== */
+    .about {
+      padding: 3rem 0;
+    }
+
+    @media (min-width: 768px) {
+      .about { padding: 4rem 0; }
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    @media (min-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr 1px 1fr;
+        gap: 3rem;
+      }
+    }
+
+    .about-text p {
+      font-size: 0.9375rem;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .about-text p:last-child { margin-bottom: 0; }
+
+    .about-divider {
+      display: none;
+      background: rgba(255, 255, 255, 0.06);
+      width: 1px;
+      height: 100%;
+      min-height: 200px;
+    }
+
+    @media (min-width: 768px) {
+      .about-divider { display: block; }
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .about-stat-card {
+      background: #18181b;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .about-stat-card .stat-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 2px;
+    }
+
+    .about-stat-card .stat-label {
+      font-size: 0.6875rem;
+      color: rgba(255, 255, 255, 0.25);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* ===== CTA ===== */
+    .cta {
+      padding: 3rem 0;
+    }
+
+    @media (min-width: 768px) {
+      .cta { padding: 4rem 0; }
+    }
+
+    .cta-box {
+      position: relative;
+      background: #111113;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 3rem 1.5rem;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+      .cta-box { padding: 4rem 2rem; }
+    }
+
+    .cta-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-content .section-title {
+      margin-bottom: 0.75rem;
+    }
+
+    .cta-content .section-subtitle {
+      max-width: 440px;
+      margin: 0 auto 2rem;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      padding: 3rem 0 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer-wrapper {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px 16px 0 0;
+      padding: 2.5rem 1.5rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer-glow {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.02);
+      filter: blur(60px);
+      pointer-events: none;
+    }
+
+    .footer-glow-1 { top: -100px; left: 10%; }
+    .footer-glow-2 { bottom: -100px; right: 10%; }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (min-width: 768px) {
+      .footer-top {
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 3rem;
+      }
+    }
+
+    .footer-brand-text {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .footer-brand-desc {
+      font-size: 0.8125rem;
+      color: rgba(255, 255, 255, 0.35);
+      line-height: 1.6;
+    }
+
+    .footer-col-title {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.25);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 0.8125rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 8px;
+      transition: color 0.2s ease;
+    }
+
+    .footer-col a:hover { color: #e5e5e5; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (min-width: 768px) {
+      .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    .footer-rating {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .footer-rating svg {
+      width: 12px;
+      height: 12px;
+      fill: #e5e5e5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="header-logo">{{nome}}</a>
+      <nav class="header-nav">
+        <a href="#serviços">Serviços</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <div class="header-cta">
+        <a href="https://wa.me/55{{telefone}}" class="btn-primary">Fale Conosco</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="container">
+      <div class="hero-content fade-in">
+        <div class="tag-pill">{{ramo}}</div>
+        <h1 class="hero-title">
+          <span class="hero-word-swap" style="min-width: 200px; display: inline-block; position: relative; height: 1.1em; vertical-align: bottom;">
+            <span>Soluções</span>
+            <span>Inovacao</span>
+            <span>Excelência</span>
+          </span>
+          em {{ramo}} para quem exige resultado
+        </h1>
+        <p class="hero-subtitle">Atendemos {{cidade}} com comprometimento e profissionalismo. Sua empresa merece um parceiro que entrega o que promete.</p>
+        <div class="hero-buttons">
+          <a href="https://wa.me/55{{telefone}}" class="btn-metal">Solicitar Orcamento</a>
+          <a href="#serviços" class="btn-ghost">Ver Serviços</a>
+        </div>
+      </div>
+      <div class="hero-stats fade-in fade-in-d2">
+        <div class="hero-stat">
+          <div class="hero-stat-value">{{avaliacoes_nota}}</div>
+          <div class="hero-stat-label">Nota Google</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">{{avaliacoes_qty}}+</div>
+          <div class="hero-stat-label">Avaliacoes</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">10+</div>
+          <div class="hero-stat-label">Anos</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES BENTO -->
+  <section class="services" id="serviços">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="tag-pill">Serviços</div>
+        <h2 class="section-title">O que fazemos pela sua empresa</h2>
+        <p class="section-subtitle">Soluções completas para quem busca eficiência, qualidade e resultados consistentes.</p>
+      </div>
+      <div class="bento-grid fade-in fade-in-d1">
+        <div class="bento-cell">
+          <div class="bento-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e5e5e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Consultoria Estratégica</h3>
+          <p>Diagnostico completo com recomendacoes praticas para otimizar operações e maximizar o retorno sobre cada investimento do seu negocio.</p>
+        </div>
+        <div class="bento-cell">
+          <div class="bento-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e5e5e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3>Gestao de Projetos</h3>
+          <p>Planejamento e execucao com controle rigoroso de prazos, escopo e qualidade em cada etapa.</p>
+        </div>
+        <div class="bento-cell">
+          <div class="bento-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e5e5e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <h3>Treinamentos</h3>
+          <p>Capacitacao profissional com metodologias atualizadas para elevar a performance da equipe.</p>
+        </div>
+        <div class="bento-cell">
+          <div class="bento-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e5e5e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Suporte Dedicado</h3>
+          <p>Atendimento agil e resolução de demandas para manter sua operacao funcionando sem paradas.</p>
+        </div>
+        <div class="bento-cell">
+          <div class="bento-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e5e5e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Processos Otimizados</h3>
+          <p>Mapeamento e redesenho de fluxos internos para eliminar gargalos e ganhar velocidade operacional.</p>
+        </div>
+        <div class="bento-cell">
+          <div class="bento-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e5e5e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3>Inovacao Continua</h3>
+          <p>Adocao de tecnologias e praticas modernas para manter competitividade no seu segmento.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="sobre">
+    <div class="container">
+      <div class="about-grid">
+        <div class="fade-in">
+          <div class="tag-pill">Sobre</div>
+          <h2 class="section-title" style="margin-bottom: 0.75rem;">Comprometidos com resultado em cada projeto</h2>
+          <div class="about-text" style="margin-top: 2rem;">
+            <p>A {{nome}} atua no segmento de {{ramo}} em {{cidade}}, oferecendo soluções sob medida para empresas que buscam crescer com consistencia e qualidade.</p>
+            <p>Nossa equipe combina experiência de mercado com metodologias modernas para entregar resultados que fazem diferenca real no seu dia a dia. Cada projeto recebe atenção dedicada do planejamento a entrega.</p>
+          </div>
+        </div>
+        <div class="about-divider"></div>
+        <div class="fade-in fade-in-d2">
+          <div class="about-stats">
+            <div class="about-stat-card">
+              <div class="stat-value">10+</div>
+              <div class="stat-label">Anos</div>
+            </div>
+            <div class="about-stat-card">
+              <div class="stat-value">500+</div>
+              <div class="stat-label">Clientes</div>
+            </div>
+            <div class="about-stat-card">
+              <div class="stat-value">1.2k+</div>
+              <div class="stat-label">Projetos</div>
+            </div>
+            <div class="about-stat-card">
+              <div class="stat-value">{{avaliacoes_nota}}</div>
+              <div class="stat-label">Avaliacao</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="contato">
+    <div class="container">
+      <div class="cta-box fade-in">
+        <div class="cta-glow"></div>
+        <div class="cta-content">
+          <div class="tag-pill">Contato</div>
+          <h2 class="section-title">Pronto para elevar o nivel da sua empresa?</h2>
+          <p class="section-subtitle">Fale agora com nossa equipe e receba um atendimento personalizado para as necessidades do seu negocio.</p>
+          <a href="https://wa.me/55{{telefone}}" class="btn-metal">Chamar no WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-wrapper">
+        <div class="footer-glow footer-glow-1"></div>
+        <div class="footer-glow footer-glow-2"></div>
+        <div class="footer-top">
+          <div>
+            <div class="footer-brand-text">{{nome}}</div>
+            <p class="footer-brand-desc">{{ramo}} em {{cidade}}. Soluções profissionais com compromisso e qualidade para o seu negocio.</p>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Navegação</div>
+            <a href="#serviços">Serviços</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contato">Contato</a>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Contato</div>
+            <a href="tel:{{telefone}}">{{telefone}}</a>
+            <a href="https://wa.me/55{{telefone}}">WhatsApp</a>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Localização</div>
+            <a href="#">{{cidade}}</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-copy">&copy; 2026 {{nome}}. Todos os direitos reservados.</div>
+          <div class="footer-rating">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            {{avaliacoes_nota}} &middot; {{avaliacoes_qty}} avaliacoes
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var els = document.querySelectorAll('.fade-in');
+      if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) {
+            if (e.isIntersecting) {
+              e.target.classList.add('visible');
+              obs.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        els.forEach(function(el) { obs.observe(el); });
+      } else {
+        els.forEach(function(el) { el.classList.add('visible'); });
+      }
+    });
+  </script>
+
+</body>
+</html>

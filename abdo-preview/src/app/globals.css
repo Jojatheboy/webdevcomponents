@@ -1,0 +1,128 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+.animate-accordion-down { animation: accordion-down 0.2s cubic-bezier(.16,1,.3,1); }
+.animate-accordion-up { animation: accordion-up 0.2s cubic-bezier(.16,1,.3,1); }
+
+:root {
+  /* paleta ABDO — azul ABDO em nuances + branco. nada fora da família */
+  --background: #fbfcff;        /* branco com leve toque azul, sem bege */
+  --surface: #eaf0fa;           /* azul muito leve, claramente azulado */
+  --foreground: #1f3a8a;          /* azul ABDO principal */
+  --foreground-soft: #4a5a85;
+  --foreground-mute: #8893b3;
+  --accent: #2952c4;              /* variação mais brilhante do mesmo azul */
+  --accent-dark: #1c3e9e;
+  --dark-section: #0d1f54;        /* azul ABDO profundo pra seções escuras */
+  --dark-section-text: #ffffff;
+  --border-subtle: rgba(31, 58, 138, 0.10);
+  --border-strong: rgba(31, 58, 138, 0.22);
+
+  /* tokens shadcn (Button precisa) */
+  --primary: var(--foreground);
+  --primary-foreground: var(--background);
+  --secondary: var(--surface);
+  --secondary-foreground: var(--foreground);
+  --destructive: #b94a4a;
+  --destructive-foreground: #ffffff;
+  --border: var(--border-subtle);
+  --ring: var(--accent);
+  --accent-foreground: #ffffff;
+  --radius-ele: 6px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-foreground-soft: var(--foreground-soft);
+  --color-foreground-mute: var(--foreground-mute);
+  --color-accent: var(--accent);
+  --color-accent-dark: var(--accent-dark);
+  --color-dark-section: var(--dark-section);
+  --color-dark-section-text: var(--dark-section-text);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-accent-foreground: var(--accent-foreground);
+  --radius-ele: var(--radius-ele);
+
+  --font-sans: var(--font-geist);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-instrument);
+  --font-hero: var(--font-dm-serif);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+p, li {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 4px;
+}
+
+/* respeita reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* tokens compat com Button da assets-devweb */
+.text-primary-foreground { color: var(--primary-foreground); }
+.text-secondary-foreground { color: var(--secondary-foreground); }
+.text-destructive-foreground { color: var(--destructive-foreground); }
+.text-accent-foreground { color: var(--accent-foreground); }
+.bg-primary { background-color: var(--primary); }
+.bg-secondary { background-color: var(--secondary); }
+.bg-destructive { background-color: var(--destructive); }
+.bg-accent { background-color: var(--accent); }
+.border-border { border-color: var(--border); }
+.rounded-ele { border-radius: var(--radius-ele); }
