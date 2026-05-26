@@ -10,7 +10,7 @@ import {
 } from "framer-motion";
 
 const WHATSAPP =
-  "https://wa.me/5551987678998?text=Olá Dra. Eliane, gostaria de agendar uma consulta.";
+  "https://wa.me/5551994352254?text=Olá Dra. Eliane, gostaria de agendar uma consulta.";
 
 /* Vinho clareado — legível como texto sobre o fundo escuro */
 const ACCENT = "#d07a9f";
@@ -20,16 +20,16 @@ type Seg = { text: string; accent?: boolean };
 /* Texto preenchido conforme o scroll (cinza → branco / vinho) */
 const paragraphs: Seg[][] = [
   [
-    { text: "Tudo o que você conta para a Dra. Eliane é protegido pelo" },
+    { text: "Tudo o que é compartilhado com a Dra. Eliane é protegido pelo" },
     { text: "sigilo profissional", accent: true },
-    { text: "do advogado," },
+    { text: "da advocacia," },
     { text: "garantido por lei.", accent: true },
   ],
   [
-    { text: "A sua história, os seus documentos e o seu caso ficam" },
-    { text: "só entre você e ela.", accent: true },
-    { text: "Do primeiro contato ao fim do processo, sempre com" },
-    { text: "total discrição.", accent: true },
+    { text: "Sua história, seus documentos e seu caso ficam" },
+    { text: "resguardados com discrição,", accent: true },
+    { text: "do primeiro atendimento até o" },
+    { text: "encerramento do processo.", accent: true },
   ],
 ];
 
@@ -183,8 +183,8 @@ export function Etica() {
                   maxWidth: 440,
                 }}
               >
-                Casos de família e violência doméstica pedem ainda mais cuidado.
-                Aqui, o seu nome nunca é exposto.
+                Em casos de família e violência doméstica, o cuidado é ainda maior.
+                Aqui, você encontra acolhimento, confiança e atendimento verdadeiramente humano.
               </p>
               <a
                 href={WHATSAPP}

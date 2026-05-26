@@ -51,7 +51,7 @@ export function QuemSou() {
                     color: "#fbfbf9",
                   }}
                 >
-                  OAB/RS · 10 anos de carreira
+                  OAB/RS 122.161 · 10 anos de carreira
                 </span>
               </div>
             </div>
@@ -91,7 +91,7 @@ export function QuemSou() {
                 letterSpacing: "0.5px",
               }}
             >
-              Advogada · OAB/RS · Cachoeirinha/RS
+              Advogada · OAB/RS 122.161 · Cachoeirinha/RS
             </p>
 
             <div
@@ -103,16 +103,21 @@ export function QuemSou() {
               }}
             >
               <p>
-                Comecei na advocacia há mais de dez anos com uma certeza simples:
+                Iniciei na advocacia há mais de dez anos com uma convicção simples:
                 <strong style={{ color: "var(--marketing-heading)" }}> ninguém deveria enfrentar a Justiça sozinho</strong>,
-                ainda mais quem já está vivendo um momento difícil. De lá pra cá, foram
-                mais de mil casos nas áreas trabalhista, cível, previdenciária e de família.
+                especialmente em momentos difíceis e decisivos da vida. Ao longo dessa
+                trajetória, foram mais de 800 casos atendidos nas áreas trabalhista, cível,
+                previdenciária e de família, sempre com atuação próxima, estratégica e humanizada.
               </p>
               <p>
-                Um dos casos que mais me marcaram foi defender a esposa de um prefeito da
-                região, vítima de violência doméstica. Foi preciso coragem, sigilo e técnica,
-                e conseguimos a medida protetiva que ela precisava. É assim que encaro cada
-                processo: <strong style={{ color: "var(--marketing-heading)" }}>como se fosse o único</strong>.
+                Um dos casos que mais marcou minha trajetória foi a defesa de mais de 30
+                trabalhadores da área da saúde de Cachoeirinha/RS. Eles prestavam serviço
+                ao município por uma empresa terceirizada e foram dispensados sem verbas
+                rescisórias, sem sequer ter a carteira assinada. Ingressei com a ação
+                trabalhista e, ao final, todos tiveram seus vínculos
+                <strong style={{ color: "var(--marketing-heading)" }}> reconhecidos judicialmente</strong>
+                e receberam as verbas que lhes eram garantidas por lei. Mais do que processos,
+                a advocacia é sobre devolver dignidade e justiça às pessoas.
               </p>
             </div>
           </Reveal>

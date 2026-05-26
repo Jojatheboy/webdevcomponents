@@ -13,7 +13,7 @@ const testimonials: Testimonial[] = [
   {
     text: "Doutora nota 10. Atenciosa, explica tudo com paciência e não descansa até resolver.",
     name: "Juliana",
-    role: "Cliente · Direito da Mulher",
+    role: "Cliente · Direito das Famílias",
     initial: "J",
   },
   {

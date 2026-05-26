@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { OrganicBorder } from "./ui/OrganicBorder";
 
-const WHATSAPP = "https://wa.me/5551987678998?text=Olá Dra. Eliane, gostaria de agendar uma consulta.";
+const WHATSAPP = "https://wa.me/5551994352254?text=Olá Dra. Eliane, gostaria de agendar uma consulta.";
 
 export function CTA() {
   return (
@@ -15,13 +15,13 @@ export function CTA() {
         <OrganicBorder lines={["right", "left"]} color="rgba(0,0,0,0.08)" />
 
         <p
-          className="text-[11px] uppercase tracking-[1px] mb-2"
+          className="text-[11px] uppercase tracking-[1px] mb-4"
           style={{ fontFamily: "var(--font-geist-mono)", opacity: 0.5 }}
         >
           Seus direitos não podem esperar
         </p>
 
-        <div className="grid grid-cols-12 items-center gap-5">
+        <div className="grid grid-cols-12 items-end gap-5">
           <div className="col-span-12 lg:col-span-9">
             <motion.h2
               initial={{ opacity: 0, y: 16 }}
@@ -32,13 +32,26 @@ export function CTA() {
             >
               Fale com a Dra. Eliane agora
             </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="mt-6 text-[15px] md:text-[16px] leading-[1.65] max-w-[640px]"
+              style={{ opacity: 0.75 }}
+            >
+              Cada dia de espera pode significar mais prejuízos, insegurança e desgaste
+              emocional. Quanto antes o seu caso for analisado, maiores são as chances
+              de proteger seus direitos da forma correta. Receba orientação jurídica
+              clara, humana e estratégica.
+            </motion.p>
           </div>
           <div className="col-span-12 lg:col-span-3 lg:flex lg:justify-end">
             <a
               href={WHATSAPP}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-4 py-2.5 rounded-md text-sm font-medium no-underline transition-opacity hover:opacity-90"
+              className="inline-flex items-center gap-3 px-5 py-3 rounded-full text-sm font-medium no-underline transition-opacity hover:opacity-90 whitespace-nowrap"
               style={{ background: "var(--background)", color: "var(--foreground)" }}
             >
               Falar no WhatsApp →
@@ -54,7 +67,7 @@ export function CTA() {
         <div className="grid sm:grid-cols-3 gap-8">
           <div>
             <p className="text-[10px] uppercase tracking-[1px] mb-1 opacity-40" style={{ fontFamily: "var(--font-geist-mono)" }}>Endereço</p>
-            <p className="text-sm">Rua Afonso, 15, Jardins<br />Cachoeirinha - RS</p>
+            <p className="text-sm">Rua Guarani, 141, loja 02<br />Bairro Imbuí · Cachoeirinha — RS</p>
           </div>
           <div>
             <p className="text-[10px] uppercase tracking-[1px] mb-1 opacity-40" style={{ fontFamily: "var(--font-geist-mono)" }}>Horário</p>
@@ -63,8 +76,8 @@ export function CTA() {
           <div>
             <p className="text-[10px] uppercase tracking-[1px] mb-1 opacity-40" style={{ fontFamily: "var(--font-geist-mono)" }}>Contato</p>
             <p className="text-sm">
-              (51) 98767-8998<br />
-              draeliane@liane.com<br />
+              (51) 99435-2254<br />
+              elianeferreira.adv@hotmail.com<br />
               <a href="https://www.instagram.com/elianeferreira.adv/" target="_blank" rel="noopener noreferrer" className="no-underline transition-opacity hover:opacity-70" style={{ color: "inherit" }}>@elianeferreira.adv</a>
             </p>
           </div>

@@ -3,7 +3,7 @@
 import { Reveal } from "./Reveal";
 
 const WHATSAPP =
-  "https://wa.me/5551987678998?text=Olá Dra. Eliane, gostaria de agendar uma consulta.";
+  "https://wa.me/5551994352254?text=Olá Dra. Eliane, gostaria de agendar uma consulta.";
 
 const steps = [
   {
@@ -14,17 +14,17 @@ const steps = [
   {
     tag: "Estratégia",
     title: "Análise do caso",
-    text: "Estudo seus documentos, avalio as chances reais e monto a melhor estratégia para o seu caso.",
+    text: "Avalio seus documentos com atenção, analiso as chances reais com transparência e defino a melhor estratégia jurídica pra defender seus direitos com segurança.",
   },
   {
     tag: "Acompanhamento",
     title: "Ação na Justiça",
-    text: "Entramos com o processo e eu cuido de cada etapa. Você acompanha tudo, sem juridiquês.",
+    text: "Entramos com a ação e acompanho cada etapa de perto. Você recebe informações claras, sem juridiquês e sem ficar no escuro sobre o que está acontecendo.",
   },
   {
     tag: "Resultado",
     title: "Direito garantido",
-    text: "Sigo ao seu lado até o fim, com foco no melhor resultado e na segurança que você merece.",
+    text: "Sigo ao seu lado até o fim do processo, com comprometimento em cada detalhe. O objetivo é buscar o melhor resultado, com a segurança e seriedade que você merece.",
   },
 ];
 
@@ -69,11 +69,11 @@ export function ComoFunciona() {
               fontSize: 17,
               lineHeight: 1.6,
               color: "var(--marketing-copy-soft)",
-              maxWidth: 520,
+              maxWidth: 540,
             }}
           >
-            Sem burocracia desnecessária e sem juridiquês. Veja o caminho que
-            percorremos juntos, da primeira conversa ao seu direito garantido.
+            Sem burocracia desnecessária e sem juridiquês. Aqui você entende cada etapa do seu
+            processo de forma clara e transparente, da primeira conversa até a conquista do seu direito.
           </p>
         </Reveal>
 
