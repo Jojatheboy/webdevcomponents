@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const WHATSAPP = "https://wa.me/5551994352254?text=Olá Dra. Eliane, gostaria de agendar uma consulta.";
+const WHATSAPP = "https://wa.me/5551987678998?text=Olá Dra. Eliane, gostaria de agendar uma consulta.";
 
 const stats = [
   { num: "10", suffix: " anos", label: "de carreira" },
@@ -73,9 +73,9 @@ export function Hero() {
               maxWidth: 380,
             }}
           >
-            A Dra. Eliane Ferreira defende trabalhadores, famílias e segurados previdenciários
-            no Rio Grande do Sul e em todo o Brasil. Especialista em Trabalho, Famílias,
-            Previdenciário e Cível, com cada caso conduzido pessoalmente por ela.
+            A Dra. Eliane Ferreira defende trabalhadores e famílias em Cachoeirinha e
+            região. Trabalhista, direito da mulher, aposentadoria e cível, com cada caso
+            conduzido pessoalmente por ela.
           </motion.p>
 
           <motion.div {...enter(2.05)} className="flex items-center gap-3 mt-6">
@@ -202,13 +202,12 @@ export function Hero() {
                   fontSize: 17,
                   lineHeight: 1.7,
                   color: "var(--marketing-copy-soft)",
-                  maxWidth: 460,
+                  maxWidth: 440,
                 }}
               >
-                A Dra. Eliane Ferreira defende trabalhadores, famílias e segurados
-                previdenciários no Rio Grande do Sul e em todo o Brasil. Especialista em
-                Direito do Trabalho, Famílias, Previdenciário e Cível, com cada caso
-                conduzido pessoalmente por ela.
+                A Dra. Eliane Ferreira defende trabalhadores e famílias em Cachoeirinha e
+                região. Trabalhista, direito da mulher, aposentadoria e cível, com cada
+                caso conduzido pessoalmente por ela.
               </motion.p>
 
               <motion.div {...enter(2.05)} className="flex items-center gap-4">

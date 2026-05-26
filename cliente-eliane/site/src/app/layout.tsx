@@ -27,9 +27,9 @@ const dmSerif = DM_Serif_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Dra. Eliane Ferreira | Advocacia em Cachoeirinha/RS",
+  title: "Dra. Eliane Ferreira | Advocacia Trabalhista e Cível",
   description:
-    "Advogada OAB/RS 122.161, em Cachoeirinha/RS, com mais de 10 anos de carreira. Especialista em Direito do Trabalho, Famílias, Previdenciário e Cível. +800 clientes atendidos.",
+    "Advogada em Cachoeirinha/RS com mais de 10 anos de experiência. Especialista em Direito Trabalhista, Cível e Direito da Mulher. +800 clientes atendidos.",
 };
 
 export default function RootLayout({

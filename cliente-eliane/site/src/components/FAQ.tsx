@@ -7,42 +7,42 @@ const FAQS = [
   {
     question: "Quais áreas a Dra. Eliane atende?",
     answer:
-      "A Dra. Eliane Ferreira atua nas áreas de Direito do Trabalho, Direito das Famílias e Direito Previdenciário, além de causas de Direito Cível. Se a sua situação envolver mais de uma área, o seu caso é analisado de forma completa, com acompanhamento estratégico e atendimento personalizado em todas as etapas.",
+      "Direito Trabalhista, Direito da Mulher (divórcio, pensão, guarda e medida protetiva), Aposentadoria e revisão de benefício do INSS, e Direito Cível. Se a sua situação envolve mais de uma área, eu cuido de tudo.",
   },
   {
     question: "Como funciona a primeira conversa?",
     answer:
-      "Na primeira conversa, você explica sua situação com calma e apresenta os documentos que tiver disponíveis. A Dra. Eliane faz uma análise inicial do caso, esclarece dúvidas, explica os possíveis caminhos jurídicos e informa as chances reais. Tudo de forma clara, humanizada e sem compromisso, pra você decidir com segurança.",
+      "Você me chama no WhatsApp e conta o que está acontecendo. Eu analiso o seu caso, explico seus direitos sem juridiquês e digo as chances reais. Sem compromisso.",
   },
   {
     question: "A Dra. Eliane atende presencial ou online?",
     answer:
-      "Os dois. Presencial no escritório em Cachoeirinha/RS e por videochamada para clientes de toda a região e de qualquer lugar do Brasil, com a mesma atenção.",
+      "Os dois. Presencial em Cachoeirinha/RS e por videochamada para clientes de toda a região metropolitana de Porto Alegre, com a mesma atenção.",
   },
   {
     question: "Quanto vou pagar?",
     answer:
-      "Nas ações trabalhistas, os honorários são pagos somente ao final do processo e em caso de êxito da ação. Nas demais áreas (Famílias, Previdenciário e Cível), é feita uma análise individual do caso pra definir os honorários, sempre com transparência total e possibilidade de parcelamento.",
+      "Os valores são definidos caso a caso, conforme a complexidade, e combinados com você de forma clara antes de qualquer passo. Sem surpresa. Em parte dos casos trabalhistas dá para começar sem custo inicial.",
   },
   {
     question: "Fui demitido injustamente. A que tenho direito?",
     answer:
-      "Depende da situação, mas você pode ter direito a verbas rescisórias, saldo de salário, aviso-prévio, férias, 13º, FGTS com multa de 40%, horas extras, indenizações e até reconhecimento de irregularidades cometidas pela empresa. A Dra. Eliane faz uma análise completa dos documentos e da forma como ocorreu a demissão pra identificar todos os direitos que cabem ser buscados judicialmente.",
+      "A demissão sem justa causa garante aviso prévio, saldo de salário, férias e 13º proporcionais, multa de 40% do FGTS e o saque do fundo. Havendo assédio, horas extras não pagas ou desvio de função, cabem indenizações a mais.",
   },
   {
     question: "Como funciona a medida protetiva?",
     answer:
-      "É uma proteção prevista em lei pra resguardar mulheres em situação de violência física, psicológica, moral, patrimonial ou ameaça. Pode determinar o afastamento do agressor, a proibição de contato ou aproximação, e proteção pra vítima e seus filhos. O pedido é feito de forma rápida e sigilosa. A Dra. Eliane atua com acolhimento, discrição e firmeza num momento que exige cuidado.",
+      "É uma ordem judicial que afasta o agressor e protege a mulher em situação de violência. Pode ser pedida com urgência e sair em 24 a 48 horas. O processo é sigiloso e eu acompanho cada etapa.",
   },
   {
     question: "O INSS negou meu benefício. Ainda dá pra reverter?",
     answer:
-      "Sim. Muitas negativas do INSS podem ser revisadas administrativa ou judicialmente, principalmente quando há documentos incompletos, erros na análise ou direitos que não foram corretamente reconhecidos. Aposentadorias, auxílio-doença, benefício por incapacidade e pensão negados ainda podem ser revertidos com a estratégia certa. A Dra. Eliane avalia seu caso e define o melhor caminho.",
+      "Sim. Muitas negativas do INSS são revertidas. Eu analiso o motivo da recusa, reúno a documentação certa e entro com o recurso ou a ação na Justiça.",
   },
   {
     question: "Quanto tempo leva o meu processo?",
     answer:
-      "Depende do tipo de ação, da complexidade do caso e do andamento do Judiciário. Alguns processos são resolvidos rapidamente; outros exigem mais etapas e produção de provas. Cada situação é analisada de forma individual, com transparência sobre prazos e próximos passos. A Dra. Eliane acompanha cada etapa de perto, mantendo você informado.",
+      "Depende do tipo de causa. Medidas protetivas saem em 24 a 48 horas; ações trabalhistas costumam andar entre 6 e 18 meses. Na primeira conversa eu dou uma estimativa realista para o seu caso.",
   },
 ];
 

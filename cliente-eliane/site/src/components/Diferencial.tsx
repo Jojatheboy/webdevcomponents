@@ -34,12 +34,12 @@ const rows = [
     comum:
       "Escritórios sobrecarregados deixam prazos passarem — e o processo inteiro vai junto.",
     elianeSteps: [
-      "Cada processo monitorado de perto",
-      "Prazos controlados com antecedência",
-      "Atuação estratégica em todas as etapas",
+      "Cada processo acompanhado diariamente",
+      "Prazos cumpridos antes do vencimento",
+      "10 anos de carreira sem uma única falha",
     ],
     elianeSummary:
-      "Organização, responsabilidade e comprometimento vêm em primeiro lugar — cada prazo é monitorado com atenção.",
+      "Zero prazos perdidos em uma década inteira. Organização é a base de tudo aqui.",
   },
   {
     question: "Será que vão me explicar o que está acontecendo?",

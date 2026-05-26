@@ -15,20 +15,20 @@ import { Reveal } from "./Reveal";
 
 const areas = [
   {
-    title: "Direito do Trabalho",
-    text: "Foi demitido e não recebeu o que era seu? Atuo na defesa do trabalhador pra garantir verbas rescisórias, horas extras, insalubridade, indenizações por assédio e tudo que a empresa deixou de pagar.",
+    title: "Direito Trabalhista",
+    text: "Foi demitido e não recebeu tudo o que era seu? Recupero verbas rescisórias, horas extras, indenização por assédio e o que a empresa deixou de pagar.",
   },
   {
-    title: "Direito das Famílias",
-    text: "Divórcio, pensão alimentícia, guarda dos filhos e medidas protetivas. Conduzo cada caso com acolhimento, sigilo e firmeza, pra garantir a sua proteção e a segurança da sua família.",
+    title: "Direito da Mulher",
+    text: "Divórcio, pensão, guarda dos filhos e medida protetiva. Conduzo cada caso com acolhimento, sigilo e firmeza, para você seguir em frente protegida.",
   },
   {
-    title: "Direito Previdenciário",
-    text: "Aposentadoria por idade, tempo ou invalidez, cálculos e revisão de benefícios negados pelo INSS. Cuido da documentação e da estratégia pra você receber o que é seu.",
+    title: "Aposentadoria",
+    text: "Aposentadoria por tempo, idade ou invalidez, e revisão de benefício negado pelo INSS. Cuido da papelada e da estratégia para você receber o que é seu.",
   },
   {
     title: "Direito Cível",
-    text: "Contratos, indenizações, cobranças e Direito do Consumidor. Resolvo os conflitos do dia a dia com estratégia, agilidade e comunicação clara, sem juridiquês.",
+    text: "Contratos, indenizações, cobranças e direito do consumidor. Resolvo os conflitos do dia a dia com agilidade e numa linguagem que você entende.",
   },
 ];
 

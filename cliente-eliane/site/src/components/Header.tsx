@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const WHATSAPP = "https://wa.me/5551994352254?text=Olá Dra. Eliane, gostaria de agendar uma consulta.";
+const WHATSAPP = "https://wa.me/5551987678998?text=Olá Dra. Eliane, gostaria de agendar uma consulta.";
 
 const navLinks = [
   { label: "Áreas", href: "#areas" },
@@ -81,7 +81,7 @@ export function Header() {
               fontSize: 13,
             }}
           >
-            Fale com a Dra. Eliane
+            Fale com a Dra.
             <Arrow />
           </a>
 

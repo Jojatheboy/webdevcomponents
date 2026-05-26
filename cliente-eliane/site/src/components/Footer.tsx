@@ -18,7 +18,7 @@ export function Footer() {
               Áreas
             </h4>
             <ul className="space-y-2 text-sm">
-              {["Direito do Trabalho", "Direito das Famílias", "Previdenciário", "Cível"].map((a) => (
+              {["Trabalhista", "Cível", "Direito da Mulher", "Aposentadoria"].map((a) => (
                 <li key={a}>
                   <a href="#areas" className="no-underline opacity-70 hover:opacity-100 transition-opacity" style={{ color: "var(--foreground)" }}>
                     {a}
@@ -74,8 +74,8 @@ export function Footer() {
               Contato
             </h4>
             <ul className="space-y-2 text-sm" style={{ color: "var(--copy-soft)" }}>
-              <li>(51) 99435-2254</li>
-              <li>elianeferreira.adv@hotmail.com</li>
+              <li>(51) 98767-8998</li>
+              <li>draeliane@liane.com</li>
             </ul>
           </div>
         </div>
@@ -88,7 +88,7 @@ export function Footer() {
               className="text-[11px]"
               style={{ fontFamily: "var(--font-geist-mono)", color: "var(--muted)" }}
             >
-              © 2026 Dra. Eliane Ferreira — OAB/RS 122.161
+              © 2026 Dra. Eliane Ferreira — OAB/RS
             </p>
             <p
               className="text-[11px]"
