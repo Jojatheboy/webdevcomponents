@@ -47,3 +47,7 @@ __pycache__/
 .vscode/
 *.swp
 *.swo
+
+# Cliente sites com repo próprio (não devem ser trackeados aqui)
+cliente-eliane/site/
+abdo-preview/
